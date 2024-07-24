@@ -9,38 +9,74 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <script src="./js/trangchu.js"></script>
     <main >
         <!-- Header -->
             <header class="header">
-                    <div class="content">
-                       <nav class="navbar">
+                <div class="content">
+                    <nav class="navbar">
                         <!-- Logo -->
-                            <img src="./assets/css/img/Logo.svg" alt="Besnik.">
-                        <!-- Navigation -->
-                                <ul>
-                                    <li><a href="">Home</a></li>
-                                    <li><a href="">Features</a></li>
-                                    <li><a href="">Services</a></li>
-                                    <li><a href="">Resources</a></li>
-                                    <li><a href="">Contact</a></li>
-                                </ul>
-                        <!-- Action -->
-                                <div class="actions">
-                                   <a href="#" class="action-link">Sign in</a>
-                                   <a href="#" class="btn action-btn">Sign up</a>
-                                </div>
+                        <!-- Logo -->
+                    <img src="./assets/css/img/Logo.svg" alt="Besnik." class="logo1">
+                    
+                    <!-- Navigation -->
+                    <ul>
+                        <li>
+                            <form action="" class="search-form">
+                                <label for="timkiem" style="font-size: 1.6rem;">Tìm Kiếm</label>
+                                <input type="text" class="timkiem" id="timkiem">
+                                <button type="submit" class="search-btn" style="display: none;">Search</button>
+                            </form>
+                        </li>
+                        <!-- Các mục điều hướng khác có thể thêm vào đây -->
+                    </ul>
+
+                    <!-- Action -->
+                    <div class="actions">
+                        <a href="#" class="action-link">Sign in</a>
+                        <a href="#" class="btn action-btn">Sign up</a>
+                    </div>
                        </nav>
                        <div class="hero">
                         <div class="info">
-                            <p class="sub-title">Welcome to Besnik Agency</p>
-                            <h1 class="title">Discover a place
-                                you'll love to live.</h1>
-                            <p class="desc">Get the best real estate deals first,
-                                before they hit the mass market! HOT FORECLOSURE DEALS with one simple search.</p>
-                            <a href="#!" class="btn hero-cta">More About Us</a>
+                            <p class="sub-title">Welcome to BESNIK</p>
+                            <h1 class="title">Khám phá một nơi bạn sẽ thích để mua sắm</h1>
+                            <p class="desc">Nhận những ưu đãi thời trang tốt nhất trước khi chúng được tung ra thị trường rộng lớn! Khám phá bộ sưu tập mới nhất của chúng tôi chỉ với một cú nhấp chuột đơn giản.</p>
+                            <a href="#!" class="btn hero-cta">Explore Now</a>
                         </div>
-                        <img src="./assets/css/img/house illustration.svg" alt="Discover a place
-                        you'll love to live." class="hero-img">
+                        <div class="hero-img">
+                            <div class="slide-container">
+                                <div class="slides">
+                                    <div class="slide">
+                                        <img src="./assets/css/img/aopolo1.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./assets/css/img/thanglung1.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./assets/css/img/aopolo2.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./assets/css/img/ao1.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./assets/css/img/aopolo3.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./assets/css/img/quantay1.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./assets/css/img/quantay3.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./assets/css/img/quantay2.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+                                    </div>
+                                </div>
+                                <button class="prev">&#10094;</button>
+                                <button class="next">&#10095;</button>
+                            </div>
+                        </div>
+                        
                        </div>
                     </div>
             </header>
@@ -49,7 +85,7 @@
                 <div class="content">
                     <div class="row">
                         <!-- Logo -->
-                        <img src="./assets/css/img/Logo.svg" alt="Besnik">
+                        <img src="./assets/css/img/Logo.svg" alt="Besnik" w>
                         <!-- Star -->
                         <div class="stars">
                             <img src="./assets/css/img/Vector.svg" alt="Star">
@@ -60,8 +96,8 @@
                         </div>
                     </div>
                     <div class="row row-desc">
-                        <p class="desc">More than 45,000+ companies trust besnik</p>
-                        <p class="desc">5 Star Ratings (2k+ Review)</p>
+                        <p class="desc">Hơn 4,000+ công ty tin tưởng vào BESNIK</p>
+                        <p class="desc">Được đánh giá 5 sao (2k+ đánh giá)</p>
                     </div>
                     <div class="images">
                         <a href="#"><img src="./assets/css/img/logo2.svg" alt="MeUndies"></a>                       
@@ -76,9 +112,8 @@
             <!-- Guides -->
             <div class="guides">
                 <div class="content">
-                    <h2 class="sub-title">How its works?</h2>
-                    <p class="desc">Everything you need to know when you're looking to buy,
-                         rent, or sell - all in one place.</p>
+                    <h2 class="sub-title">Cách hoạt động?</h2>
+                    <p class="desc">Mọi thứ bạn cần biết khi bạn đang tìm mua, thuê hoặc bán - tất cả đều có thể tìm thấy tại đây.</p>
 
                          <!-- List Guide -->
                          <ul class="list-guide">
@@ -129,10 +164,10 @@
                     <div class="list">
                           <!-- Featured  item1 -->
                         <div class="item">
-                           <a href="#"> <img src="./assets/css/img/feature1.jpg" alt="Nikko Apartments" class="thumb"></a>
+                           <a href="#"> <img src="./assets/css/img//aopolo2.jpg" alt="Nikko Apartments" class="thumb"></a>
                             <div class="body">
-                                <h3 class="title"><a href="#">Nikko Apartments</a></h3>
-                                <p class="desc">8502 Preston Rd. Inglewood, Maine 98280</p>
+                                <h3 class="title"><a href="#">Áo thời trang</a></h3>
+                                <p class="desc">Mô tả sản phẩm hoặc địa chỉ cửa hàng</p>
                                 <div class="info">
                                     <img src="./assets/css/img/beds.svg" alt="" class="icon">
                                     <span class="label">5 Beds</span>
@@ -147,10 +182,10 @@
                         </div>
                         <!-- Featured  item2 -->
                         <div class="item">
-                          <a href="#">  <img src="./assets/css/img/feature2.jpg" alt="CouCou Homestead" class="thumb"> </a>
+                          <a href="#">  <img src="./assets/css/img/quantay1.jpg" alt="CouCou Homestead" class="thumb"> </a>
                             <div class="body">
-                                <h3 class="title"><a href="#">CouCou Homestead</a></h3>
-                                <p class="desc">8502 Preston Rd. Inglewood, Maine 98280</p>
+                                <h3 class="title"><a href="#">Quần thời trang</a></h3>
+                                <p class="desc">Mô tả sản phẩm hoặc địa chỉ cửa hàng</p>
                                 <div class="info">
                                     <img src="./assets/css/img/beds.svg" alt="" class="icon">
                                     <span class="label">5 Beds</span>
@@ -165,10 +200,10 @@
                         </div>
                         <!-- Featured  item3 -->
                         <div class="item">
-                        <a href="#">  <img src="./assets/css/img/feature3.jpg" alt="Nikko Apartments" class="thumb"> </a>
+                        <a href="#">  <img src="./assets/css/img/nuochoa1.jpg" alt="Nikko Apartments" class="thumb"> </a>
                             <div class="body">
-                                <h3 class="title"><a href="#" class="line-clamp">Lavis 18 Residence</a></h3>
-                                <p class="desc line-clamp">8502 Preston Rd. Inglewood, Maine 98280</p>
+                                <h3 class="title"><a href="#" class="line-clamp">Phụ kiện thời trang</a></h3>
+                                <p class="desc line-clamp">Mô tả sản phẩm hoặc địa chỉ cửa hàng</p>
                                 <div class="info">
                                     <img src="./assets/css/img/beds.svg" alt="" class="icon">
                                     <span class="label">5 Beds</span>
@@ -215,12 +250,12 @@
                     </div>
                     <div class="row row-qty">
                         <div class="qty-item">
-                            <strong class="qty">2,500</strong>
-                            <p class="qty-desc">Homes For Sale</p>
+                            <strong class="qty">50+</strong>
+                            <p class="qty-desc">Tổng Số Cửa Hàng</p>
                         </div>
                         <div class="qty-item">
                             <strong class="qty">5,000+</strong>
-                            <p class="qty-desc">Homes Recently Sold</p>
+                            <p class="qty-desc">Số Sản Phẩm</p>
                         </div>
                         <div class="qty-item">
                             <strong class="qty">170+</strong>

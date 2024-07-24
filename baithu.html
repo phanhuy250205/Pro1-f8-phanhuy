@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script src="./js/quanao.js"></script>
+    <h1>Sản Phẩm</h1>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="./assets/css/img/sanpham1(ao).jpg" alt="Product 1" class="main-image" data-images='["./assets/css/img/sanpham1(ao).jpg", "./assets/css/img/ao1.jpg", "./assets/css/img/ao2.jpg"]'>
+            <h2>Áo POLO NAM</h2>
+            <p class="price">$9.99</p>
+            <p class="description line-clamp">Áo polo nam Đẹp Thịnh Hành Yêu Thích Nhất</p>
+            <a href="#" class="btn" data-id="1" data-name="Áo POLO NAM" data-price="9.99">Add to Cart</a>
+        </div>
+        <!-- Lặp lại các thẻ product-card khác nếu cần -->
+    </div>
+
+    <!-- Cấu trúc modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img class="modal-main-image" id="modalImage">
+            <div class="modal-thumbnails" id="modalThumbnails"></div>
+        </div>
+    </div>
+<style>
+   
+
+</style>
+    
+</body>
+</html>
