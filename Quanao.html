@@ -33,6 +33,7 @@
                     
                     <a href="#" id="cart-icon">
                         <img src="./assets/css/img/store.png" alt="">
+                        <div id="cart-items" style="display: none; position: absolute;top: 130px; background-color: rgb(231, 230, 230);"></div>
                         <span id="cart-count">0</span>
                     </a>
                     <a href="#" class="action-link">Sign in</a>
@@ -51,7 +52,7 @@
                         <h2>Áo POLO NAM</h2>
                         <p class="price">$9.99</p>
                         <p class="description line-clamp">Áo polo nam Đẹp Thịnh Hành Yêu Thích Nhất</p>
-                        <a href="#" class="btn" data-id="1" data-name="Áo POLO NAM" data-price="9.99">Add to Cart</a>
+                        <a href="#" class="btn" data-id="1" data-name="Áo POLO NAM" data-price="9.99">Xem Sản Phẩm</a>
                     </div>
 
                     <div class="product-card">
@@ -59,7 +60,7 @@
                         <h2>Áo POLO NAM</h2>
                         <p class="price">$19.99</p>
                         <p class="description line-clamp">Áo polo nam phối túi thêu chữ Mã: HT32</p>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <a href="#" class="btn" data-id="2" data-name="Áo POLO NAM" data-price="19.99">Xem Sản Phẩm</a>
                     </div>
 
                     <div class="product-card">
@@ -67,23 +68,23 @@
                         <h2>ÁO POLO </h2>
                         <p class="price">$29.99</p>
                         <p class="description line-clamp">Áo polo nam phối túi thêu chữ Mã: HT33</p>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <a href="#" class="btn" data-id="3" data-name="Áo POLO NAM" data-price="29.99">Xem Sản Phẩm</a>
                     </div>
 
                     <div class="product-card">
                         <img src="./assets/css/img/sanpham3(ao).jpg" alt="Product 4">
-                        <h2>ÁO SƠ MI</h2>
+                        <h2>ÁO SƠ MI TH1</h2>
                         <p class="price">$39.99</p>
                         <p class="description line-clamp">Áo sơ mi nam</p>
-                        <a href="#" class="btn btnn">Add to Cart</a>
+                        <a href="#" class="btn" data-id="4" data-name="ÁO SƠ MI" data-price="39.99">Xem Sản Phẩm</a>
                     </div>
 
                     <div class="product-card">
                         <img src="./assets/css/img/sanpham4(ao).jpg" alt="Product 5">
-                        <h2>ÁO SƠ MI</h2>
+                        <h2>ÁO SƠ MI TH2</h2>
                         <p class="price">$49.99</p>
                         <p class="description line-clamp">Sản phẩm được yêu thích nhất.</p>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <a href="#" class="btn" data-id="5" data-name="ÁO SƠ MI" data-price="49.99">Xem Sản Phẩm</a>
                     </div>
 
                     <div class="product-card">
@@ -204,11 +205,29 @@
                 </div>
             </div>
         </section>
+        <section class="product-detail" id="product-detail">
+            <div class="content">
+                <h1 id="product-title">Chi Tiết Sản Phẩm</h1>
+                <div class="carousel" id="product-images">
+                    <!-- Ảnh sản phẩm sẽ được chèn vào đây bằng JavaScript -->
+                </div>
+                <p class="price" id="product-price">$0.00</p>
+                <p class="description" id="product-description">Mô tả sản phẩm sẽ được chèn vào đây bằng JavaScript</p>
+                <div class="button-container">
+                    <button class="btn" id="buy-product">Mua</button>
+                    <button class="btn" id="back-to-products">Quay lại</button>
+                </div>
+            </div>
+        </section>
+        <!-- Danh sách sản phầm -->
+
+        
     </main>
     <footer>
         <div class="content">
             <p>&copy; 2024 Your Shop Name. All rights reserved.</p>
         </div>
     </footer>
+    
 </body>
 </html>

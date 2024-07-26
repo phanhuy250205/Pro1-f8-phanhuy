@@ -1,37 +1,445 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản Phẩm</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./assets/css/Quaoao.css">
+    <title>Product Page</title>
 </head>
 <body>
     <script src="./js/quanao.js"></script>
-    <h1>Sản Phẩm</h1>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="./assets/css/img/sanpham1(ao).jpg" alt="Product 1" class="main-image" data-images='["./assets/css/img/sanpham1(ao).jpg", "./assets/css/img/ao1.jpg", "./assets/css/img/ao2.jpg"]'>
-            <h2>Áo POLO NAM</h2>
-            <p class="price">$9.99</p>
-            <p class="description line-clamp">Áo polo nam Đẹp Thịnh Hành Yêu Thích Nhất</p>
-            <a href="#" class="btn" data-id="1" data-name="Áo POLO NAM" data-price="9.99">Add to Cart</a>
-        </div>
-        <!-- Lặp lại các thẻ product-card khác nếu cần -->
-    </div>
+    <main>
+        <!-- Header -->
+        <header class="header">
+            <div class="content">
+                <nav class="navbar">
+                    <!-- Logo -->
+                    <img src="./assets/css/img/Logo.svg" alt="Besnik." class="logo1" width="80px">
+                    <!-- Navigation -->
+                    <ul>
+                        <li>
+                            <form action="" class="search-form">
+                                <label for="timkiem" style="font-size: 1.6rem;">Tìm Kiếm</label>
+                                <input type="text" class="timkiem" id="timkiem">
+                                <button type="submit" class="search-btn">Search</button>
+                            </form>
+                        </li>
+                    </ul>
+                    <div class="actions">
+                        <a href="#" id="cart-icon">
+                            <img src="./assets/css/img/store.png" alt="">
+                            <div id="cart-items" style="display: none; position: absolute;top: 130px; background-color: rgb(231, 230, 230);"></div>
+                            <span id="cart-count">0</span>
+                        </a>
+                        <a href="#" class="action-link">Sign in</a>
+                        <a href="#" class="btn action-btn">Sign up</a>
+                    </div>
+                </nav> <!-- Chú thích: Thêm thẻ đóng nav -->
+            </div>
+        </header>
 
-    <!-- Cấu trúc modal -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <div class="modal-content">
-            <img class="modal-main-image" id="modalImage">
-            <div class="modal-thumbnails" id="modalThumbnails"></div>
-        </div>
-    </div>
-<style>
-   
+        <!-- Sản Phẩm -->
+        <section class="products">
+            <div class="content">
+                <h1>Sản Phẩm</h1>
+                <div class="product-grid">
+                    <!-- Sản phẩm -->
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham1(ao).jpg" alt="Product 1">
+                        <h2>Áo POLO NAM</h2>
+                        <p class="price">$9.99</p>
+                        <p class="description line-clamp">Áo polo nam Đẹp Thịnh Hành Yêu Thích Nhất</p>
+                        <a href="#" class="btn" data-id="1" data-name="Áo POLO NAM" data-price="9.99">Xem Sản Phẩm</a>
+                    </div>
 
-</style>
-    
+                    <div class="product-card">
+                        <img src="./assets/css/img/ao1.jpg" alt="Product 2">
+                        <h2>Áo POLO NAM</h2>
+                        <p class="price">$19.99</p>
+                        <p class="description line-clamp">Áo polo nam phối túi thêu chữ Mã: HT32</p>
+                        <a href="#" class="btn" data-id="2" data-name="Áo POLO NAM" data-price="19.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham2(ao).jpg" alt="Product 3">
+                        <h2>ÁO POLO </h2>
+                        <p class="price">$29.99</p>
+                        <p class="description line-clamp">Áo polo nam phối túi thêu chữ Mã: HT33</p>
+                        <a href="#" class="btn" data-id="3" data-name="Áo POLO NAM" data-price="29.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham3(ao).jpg" alt="Product 4">
+                        <h2>ÁO SƠ MI TH1</h2>
+                        <p class="price">$39.99</p>
+                        <p class="description line-clamp">Áo sơ mi nam</p>
+                        <a href="#" class="btn" data-id="4" data-name="ÁO SƠ MI" data-price="39.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham4(ao).jpg" alt="Product 5">
+                        <h2>ÁO SƠ MI TH2</h2>
+                        <p class="price">$49.99</p>
+                        <p class="description line-clamp">Sản phẩm được yêu thích nhất.</p>
+                        <a href="#" class="btn" data-id="5" data-name="ÁO SƠ MI" data-price="49.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham5(quan).jpg" alt="Product 6">
+                        <h2>Quần Tây Mã Nam TH1</h2>
+                        <p class="price">$29.99</p>
+                        <p class="description line-clamp">Quần Nam Được yêu thích nhất hiện nay.</p>
+                        <a href="#" class="btn" data-id="6" data-name="Quần Tây Mã Nam TH1" data-price="29.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham6(Quan).jpg" alt="Product 7">
+                        <h2>Quần Tây Mã Nam TH2</h2>
+                        <p class="price">$59.99</p>
+                        <p class="description line-clamp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae.</p>
+                        <a href="#" class="btn" data-id="7" data-name="Quần Tây Mã Nam TH2" data-price="59.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham7(quan).jpg" alt="Product 8">
+                        <h2>Quần Tây Mã Nam TH3</h2>
+                        <p class="price">$79.99</p>
+                        <p class="description line-clamp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae.</p>
+                        <a href="#" class="btn" data-id="8" data-name="Quần Tây Mã Nam TH3" data-price="79.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham8(quan).jpg" alt="Product 9">
+                        <h2>Quần Tây Mã Nam TH4</h2>
+                        <p class="price">$109.99</p>
+                        <p class="description line-clamp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae.</p>
+                        <a href="#" class="btn" data-id="9" data-name="Quần Tây Mã Nam TH4" data-price="109.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham9(quan).jpg" alt="Product 10">
+                        <h2>Quần Tây Mã Nam TH5</h2>
+                        <p class="price">$119.99</p>
+                        <p class="description line-clamp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae.</p>
+                        <a href="#" class="btn" data-id="10" data-name="Quần Tây Mã Nam TH5" data-price="119.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham10(nuochoa).jpg" alt="Product 11">
+                        <h2>Nước Hoa Ultra Male CHIC PERFUME</h2>
+                        <p class="price">$119.99</p>
+                        <p class="description line-clamp">Phong cách nam tính, cuốn hút</p>
+                        <a href="#" class="btn" data-id="11" data-name="Nước Hoa Ultra Male CHIC PERFUME" data-price="119.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham11(nuochoa).jpg" alt="Product 12">
+                        <h2>Nước Hoa Nam Dior SAUVAGE</h2>
+                        <p class="price">$119.99</p>
+                        <p class="description line-clamp">Chuẩn Auth - Hương Thơm Cực Cuốn, Nam Tính.</p>
+                        <a href="#" class="btn" data-id="12" data-name="Nước Hoa Nam Dior SAUVAGE" data-price="119.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham12(nuochoa).jpg" alt="Product 13">
+                        <h2>Nước Hoa Nam Bleu De CHANEL</h2>
+                        <p class="price">$119.99</p>
+                        <p class="description line-clamp">Đẳng Cấp, Sang Trọng, Quyến Rũ.</p>
+                        <a href="#" class="btn" data-id="13" data-name="Nước Hoa Nam Bleu De CHANEL" data-price="119.99">Xem Sản Phẩm</a>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/css/img/sanpham13(giay).jpg" alt="Product 14">
+                        <h2>Giày Nam Sneaker Đen Trắng Đế Nổi Ấn Tượng</h2>
+                        <p class="price">$119.99</p>
+                        <p class="description line-clamp">Chất Liệu Da Tổng Hợp Cao Cấp</p>
+                        <a href="#" class="btn" data-id="14" data-name="Giày Nam Sneaker Đen Trắng Đế Nổi Ấn Tượng" data-price="119.99">Xem Sản Phẩm</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chi Tiết Sản Phẩm -->
+        <section class="product-detail" id="product-detail">
+            <div class="content">
+                <h1 id="product-title">Chi Tiết Sản Phẩm</h1>
+                <div class="carousel" id="product-images">
+                    <!-- Ảnh sản phẩm sẽ được chèn vào đây bằng JavaScript -->
+                </div>
+                <p class="price" id="product-price">$0.00</p>
+                <p class="description" id="product-description">Mô tả sản phẩm sẽ được chèn vào đây bằng JavaScript</p>
+                <button class="btn" id="buy-product">Mua</button>
+                <button class="btn" id="back-to-products">Quay lại</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="content">
+            <p>&copy; 2024 Your Shop Name. All rights reserved.</p>
+        </div>
+    </footer>
+    <style>
+/* CSS File: Quaoao.css */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0f1b4c;
+    --secondary-color: #4F5361;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'DVN-Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    max-width: 1540px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.navbar img {
+    height: 50px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar ul a {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 1.4rem;
+    padding: 8px 14px;
+}
+
+.navbar ul a:hover {
+    text-decoration: underline;
+}
+
+.navbar .actions {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar .action-link {
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+}
+
+.navbar .action-btn {
+    padding: 13px 16px;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-form label {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.search-form .timkiem {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 500px;
+    font-size: 1.2rem;
+}
+
+.search-form .search-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.navbar .action-btn:hover {
+    opacity: 0.9;
+}
+
+a {
+    text-decoration: none;
+}
+
+.content {
+    width: 90%;
+    max-width: 1110px;
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 18px 16px;
+    display: inline-block;
+    min-width: 98px;
+    border-radius: 12px;
+    background: var(--primary-color);
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 21px;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp, 2);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.products {
+    padding: 40px 0;
+    background-color: var(--background-color);
+    margin-top: -81px;
+}
+
+/* Sửa lại độ rộng của product-card */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.product-card h2 {
+    font-size: 1.8rem;
+    margin: 15px 0 10px;
+}
+
+.product-card .price {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.product-card .description {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.product-card .btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
+.product-card .btn:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-detail {
+    display: none;
+    padding: 40px 0;
+    background-color: var(--background-color);
+}
+
+.product-detail.active {
+    display: block;
+}
+
+.product-detail .carousel {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+    padding: 20px 0;
+}
+
+.product-detail .carousel img {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+}
+
+.product-detail h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+}
+
+.product-detail .price {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.product-detail .description {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+
+    </style>
 </body>
 </html>
