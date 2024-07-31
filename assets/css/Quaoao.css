@@ -401,3 +401,14 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+.description {
+    padding: 0 16px;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines before truncation */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

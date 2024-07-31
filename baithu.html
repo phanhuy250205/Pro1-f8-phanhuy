@@ -1,445 +1,152 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/Quaoao.css">
-    <title>Product Page</title>
+    <title>Document</title>
 </head>
 <body>
-    <script src="./js/quanao.js"></script>
-    <main>
-        <!-- Header -->
-        <header class="header">
-            <div class="content">
-                <nav class="navbar">
-                    <!-- Logo -->
-                    <img src="./assets/css/img/Logo.svg" alt="Besnik." class="logo1" width="80px">
-                    <!-- Navigation -->
-                    <ul>
-                        <li>
-                            <form action="" class="search-form">
-                                <label for="timkiem" style="font-size: 1.6rem;">Tìm Kiếm</label>
-                                <input type="text" class="timkiem" id="timkiem">
-                                <button type="submit" class="search-btn">Search</button>
-                            </form>
-                        </li>
-                    </ul>
-                    <div class="actions">
-                        <a href="#" id="cart-icon">
-                            <img src="./assets/css/img/store.png" alt="">
-                            <div id="cart-items" style="display: none; position: absolute;top: 130px; background-color: rgb(231, 230, 230);"></div>
-                            <span id="cart-count">0</span>
-                        </a>
-                        <a href="#" class="action-link">Sign in</a>
-                        <a href="#" class="btn action-btn">Sign up</a>
-                    </div>
-                </nav> <!-- Chú thích: Thêm thẻ đóng nav -->
-            </div>
-        </header>
-
-        <!-- Sản Phẩm -->
-        <section class="products">
-            <div class="content">
-                <h1>Sản Phẩm</h1>
-                <div class="product-grid">
-                    <!-- Sản phẩm -->
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham1(ao).jpg" alt="Product 1">
-                        <h2>Áo POLO NAM</h2>
-                        <p class="price">$9.99</p>
-                        <p class="description line-clamp">Áo polo nam Đẹp Thịnh Hành Yêu Thích Nhất</p>
-                        <a href="#" class="btn" data-id="1" data-name="Áo POLO NAM" data-price="9.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/ao1.jpg" alt="Product 2">
-                        <h2>Áo POLO NAM</h2>
-                        <p class="price">$19.99</p>
-                        <p class="description line-clamp">Áo polo nam phối túi thêu chữ Mã: HT32</p>
-                        <a href="#" class="btn" data-id="2" data-name="Áo POLO NAM" data-price="19.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham2(ao).jpg" alt="Product 3">
-                        <h2>ÁO POLO </h2>
-                        <p class="price">$29.99</p>
-                        <p class="description line-clamp">Áo polo nam phối túi thêu chữ Mã: HT33</p>
-                        <a href="#" class="btn" data-id="3" data-name="Áo POLO NAM" data-price="29.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham3(ao).jpg" alt="Product 4">
-                        <h2>ÁO SƠ MI TH1</h2>
-                        <p class="price">$39.99</p>
-                        <p class="description line-clamp">Áo sơ mi nam</p>
-                        <a href="#" class="btn" data-id="4" data-name="ÁO SƠ MI" data-price="39.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham4(ao).jpg" alt="Product 5">
-                        <h2>ÁO SƠ MI TH2</h2>
-                        <p class="price">$49.99</p>
-                        <p class="description line-clamp">Sản phẩm được yêu thích nhất.</p>
-                        <a href="#" class="btn" data-id="5" data-name="ÁO SƠ MI" data-price="49.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham5(quan).jpg" alt="Product 6">
-                        <h2>Quần Tây Mã Nam TH1</h2>
-                        <p class="price">$29.99</p>
-                        <p class="description line-clamp">Quần Nam Được yêu thích nhất hiện nay.</p>
-                        <a href="#" class="btn" data-id="6" data-name="Quần Tây Mã Nam TH1" data-price="29.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham6(Quan).jpg" alt="Product 7">
-                        <h2>Quần Tây Mã Nam TH2</h2>
-                        <p class="price">$59.99</p>
-                        <p class="description line-clamp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae.</p>
-                        <a href="#" class="btn" data-id="7" data-name="Quần Tây Mã Nam TH2" data-price="59.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham7(quan).jpg" alt="Product 8">
-                        <h2>Quần Tây Mã Nam TH3</h2>
-                        <p class="price">$79.99</p>
-                        <p class="description line-clamp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae.</p>
-                        <a href="#" class="btn" data-id="8" data-name="Quần Tây Mã Nam TH3" data-price="79.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham8(quan).jpg" alt="Product 9">
-                        <h2>Quần Tây Mã Nam TH4</h2>
-                        <p class="price">$109.99</p>
-                        <p class="description line-clamp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae.</p>
-                        <a href="#" class="btn" data-id="9" data-name="Quần Tây Mã Nam TH4" data-price="109.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham9(quan).jpg" alt="Product 10">
-                        <h2>Quần Tây Mã Nam TH5</h2>
-                        <p class="price">$119.99</p>
-                        <p class="description line-clamp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae.</p>
-                        <a href="#" class="btn" data-id="10" data-name="Quần Tây Mã Nam TH5" data-price="119.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham10(nuochoa).jpg" alt="Product 11">
-                        <h2>Nước Hoa Ultra Male CHIC PERFUME</h2>
-                        <p class="price">$119.99</p>
-                        <p class="description line-clamp">Phong cách nam tính, cuốn hút</p>
-                        <a href="#" class="btn" data-id="11" data-name="Nước Hoa Ultra Male CHIC PERFUME" data-price="119.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham11(nuochoa).jpg" alt="Product 12">
-                        <h2>Nước Hoa Nam Dior SAUVAGE</h2>
-                        <p class="price">$119.99</p>
-                        <p class="description line-clamp">Chuẩn Auth - Hương Thơm Cực Cuốn, Nam Tính.</p>
-                        <a href="#" class="btn" data-id="12" data-name="Nước Hoa Nam Dior SAUVAGE" data-price="119.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham12(nuochoa).jpg" alt="Product 13">
-                        <h2>Nước Hoa Nam Bleu De CHANEL</h2>
-                        <p class="price">$119.99</p>
-                        <p class="description line-clamp">Đẳng Cấp, Sang Trọng, Quyến Rũ.</p>
-                        <a href="#" class="btn" data-id="13" data-name="Nước Hoa Nam Bleu De CHANEL" data-price="119.99">Xem Sản Phẩm</a>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="./assets/css/img/sanpham13(giay).jpg" alt="Product 14">
-                        <h2>Giày Nam Sneaker Đen Trắng Đế Nổi Ấn Tượng</h2>
-                        <p class="price">$119.99</p>
-                        <p class="description line-clamp">Chất Liệu Da Tổng Hợp Cao Cấp</p>
-                        <a href="#" class="btn" data-id="14" data-name="Giày Nam Sneaker Đen Trắng Đế Nổi Ấn Tượng" data-price="119.99">Xem Sản Phẩm</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Chi Tiết Sản Phẩm -->
-        <section class="product-detail" id="product-detail">
-            <div class="content">
-                <h1 id="product-title">Chi Tiết Sản Phẩm</h1>
-                <div class="carousel" id="product-images">
-                    <!-- Ảnh sản phẩm sẽ được chèn vào đây bằng JavaScript -->
-                </div>
-                <p class="price" id="product-price">$0.00</p>
-                <p class="description" id="product-description">Mô tả sản phẩm sẽ được chèn vào đây bằng JavaScript</p>
-                <button class="btn" id="buy-product">Mua</button>
-                <button class="btn" id="back-to-products">Quay lại</button>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="content">
-            <p>&copy; 2024 Your Shop Name. All rights reserved.</p>
-        </div>
-    </footer>
+    <form id="contact_form" method="post" class="pix_form contact_form" pix-confirm="hidden_pix_4">
+        <div class="result"></div>
+        <input type="hidden" name="send" value="Y">
+        <input type="hidden" name="ok" value="no">
+    
+        <input type="hidden" class="bx-input utm_source" name="utm_source" value="" />
+        <input type="hidden" class="bx-input utm_medium" name="utm_medium" value="" />
+        <input type="hidden" class="bx-input utm_campaign" name="utm_campaign" value="" />
+        <input type="hidden" class="bx-input utm_full_url" name="utm_full_url" value="" />
+        <input type="hidden" class="bx-input period" name="period" value="2 tuần" />
+    
+        <input type="text" name="name" placeholder="Họ và tên" class="pix_text name">
+        <input type="email" name="email_work" placeholder="Email" class="pix_text email">
+        <input type="text" name="phone_mobile" placeholder="Số điện thoại" class="pix_text phone">
+        <span class="send_btn">
+            <button type="submit" class="submit_btn green_1_bg pix_text" id="submit_btn_6">
+                <span class="editContent">Đăng ký mua ngay</span>
+            </button>
+        </span>
+    </form>
     <style>
-/* CSS File: Quaoao.css */
-* {
-    box-sizing: border-box;
+        
+.contact_form { max-width: 300px; }
+.contact_form button.submit_btn { margin-bottom: 10px; }
+.contact_form input, .contact_form input:focus, .contact_form select, .contact_form textarea, .contact_form textarea:focus { 
+  width: 100%; background: #fff; border: 2px solid #eee; border-radius: 3px; padding: 15px 10px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700; font-size: 14px; outline: none; font: 13px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #777; margin: 0; max-width: 100%; display: block; margin-bottom: 20px; 
+  -moz-box-sizing: initial;
 }
-
-:root {
-    --primary-color: #0f1b4c;
-    --secondary-color: #4F5361;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-body {
-    font-size: 1.6rem;
-    font-family: 'DVN-Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: var(--text-color);
-    background-color: var(--background-color);
-}
-
-.header {
-    position: relative;
-    width: 100%;
-    max-width: 1540px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.navbar img {
-    height: 50px;
-}
-
-.navbar ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar ul li {
-    margin-right: 20px;
-}
-
-.navbar ul a {
-    color: var(--secondary-color);
-    font-weight: 500;
-    font-size: 1.4rem;
-    padding: 8px 14px;
-}
-
-.navbar ul a:hover {
-    text-decoration: underline;
-}
-
-.navbar .actions {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.navbar .action-link {
-    font-weight: 500;
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-right: 15px;
-}
-
-.navbar .action-btn {
-    padding: 13px 16px;
-    border-radius: 8px;
-    background: var(--primary-color);
-    color: #ffffff;
-    text-align: center;
-    font-size: 1.4rem;
-    text-decoration: none;
-}
-
-.search-form {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.search-form label {
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.search-form .timkiem {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 500px;
-    font-size: 1.2rem;
-}
-
-.search-form .search-btn {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    background: var(--primary-color);
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-.navbar .action-btn:hover {
-    opacity: 0.9;
-}
-
-a {
-    text-decoration: none;
-}
-
-.content {
-    width: 90%;
-    max-width: 1110px;
-    margin: 0 auto;
-}
-
-.btn {
-    padding: 18px 16px;
-    display: inline-block;
-    min-width: 98px;
-    border-radius: 12px;
-    background: var(--primary-color);
-    font-weight: 500;
-    color: #ffffff;
-    text-align: center;
-    font-size: 1.4rem;
-    line-height: 21px;
-}
-
-.btn:hover {
-    opacity: 0.9;
-}
-
-.line-clamp {
-    display: -webkit-box;
-    -webkit-line-clamp: var(--line-clamp, 2);
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.products {
-    padding: 40px 0;
-    background-color: var(--background-color);
-    margin-top: -81px;
-}
-
-/* Sửa lại độ rộng của product-card */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.product-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product-card img {
-    width: 100%;
-    border-radius: 12px;
-}
-
-.product-card h2 {
-    font-size: 1.8rem;
-    margin: 15px 0 10px;
-}
-
-.product-card .price {
-    font-size: 1.6rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-.product-card .description {
-    font-size: 1.4rem;
-    color: var(--text-color);
-    margin-bottom: 15px;
-}
-
-.product-card .btn {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-    border-radius: 12px;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    font-size: 1.6rem;
-    text-decoration: none;
-}
-
-.product-card .btn:hover {
-    background-color: darken(var(--primary-color), 10%);
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.product-detail {
-    display: none;
-    padding: 40px 0;
-    background-color: var(--background-color);
-}
-
-.product-detail.active {
-    display: block;
-}
-
-.product-detail .carousel {
-    display: flex;
-    gap: 10px;
-    overflow-x: scroll;
-    padding: 20px 0;
-}
-
-.product-detail .carousel img {
-    width: 300px;
-    height: auto;
-    border-radius: 12px;
-}
-
-.product-detail h1 {
-    font-size: 2.4rem;
-    margin-bottom: 20px;
-}
-
-.product-detail .price {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.product-detail .description {
-    font-size: 1.6rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
-}
-
+.contact_form .submit_btn, .contact_form .submit_btn:focus, .contact_form .submit_btn:hover { background: #ff6800; width: 100%; padding: 15px 0; outline: none; border: none; color: #fff; box-shadow: 0 -3px rgba(0, 0, 0, 0.2) inset; font-size: 16px; text-shadow: none; -webkit-transition: all .2s linear; -moz-transition: all .2s linear; -ms-transition: all .2s linear; -o-transition: all 0.2s linear; }
+.contact_form .submit_btn:hover { opacity: 0.7; }
+.contact_form .submit_btn:focus { opacity: .7; box-shadow: none; }
+.contact_form div#result > span { color: red; width: 100%; display: inline-block; }
+.contact_form div#result { padding-bottom: 10px; }
+.contact_form div.fcity { margin-bottom: 10px; }
+.contact_form div.fcity { display: inline-block; width: 100%; }
+.contact_form div.fcity > label, .contact_form div.fcity > select { width: 100%; display: inline-block; float: left; background: #fff; border: 2px solid #eee; border-radius: 3px; padding: 5px 10px; height: 50px !important; line-height: 22px !important; }
 
     </style>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var jW = $.noConflict();
+var dateFormat=function(){var t=/d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,e=/\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,a=/[^-+\dA-Z]/g,m=function(t,e){for(t=String(t),e=e||2;t.length<e;)t="0"+t;return t};return function(d,n,r){var y=dateFormat;if(1!=arguments.length||"[object String]"!=Object.prototype.toString.call(d)||/\d/.test(d)||(n=d,d=void 0),d=d?new Date(d):new Date,isNaN(d))throw SyntaxError("invalid date");n=String(y.masks[n]||n||y.masks["default"]),"UTC:"==n.slice(0,4)&&(n=n.slice(4),r=!0);var s=r?"getUTC":"get",i=d[s+"Date"](),o=d[s+"Day"](),u=d[s+"Month"](),M=d[s+"FullYear"](),l=d[s+"Hours"](),T=d[s+"Minutes"](),h=d[s+"Seconds"](),c=d[s+"Milliseconds"](),g=r?0:d.getTimezoneOffset(),S={d:i,dd:m(i),ddd:y.i18n.dayNames[o],dddd:y.i18n.dayNames[o+7],m:u+1,mm:m(u+1),mmm:y.i18n.monthNames[u],mmmm:y.i18n.monthNames[u+12],yy:String(M).slice(2),yyyy:M,h:l%12||12,hh:m(l%12||12),H:l,HH:m(l),M:T,MM:m(T),s:h,ss:m(h),l:m(c,3),L:m(c>99?Math.round(c/10):c),t:12>l?"a":"p",tt:12>l?"am":"pm",T:12>l?"A":"P",TT:12>l?"AM":"PM",Z:r?"UTC":(String(d).match(e)||[""]).pop().replace(a,""),o:(g>0?"-":"+")+m(100*Math.floor(Math.abs(g)/60)+Math.abs(g)%60,4),S:["th","st","nd","rd"][i%10>3?0:(i%100-i%10!=10)*i%10]};return n.replace(t,function(t){return t in S?S[t]:t.slice(1,t.length-1)})}}();dateFormat.masks={"default":"ddd mmm dd yyyy HH:MM:ss",shortDate:"m/d/yy",mediumDate:"mmm d, yyyy",longDate:"mmmm d, yyyy",fullDate:"dddd, mmmm d, yyyy",shortTime:"h:MM TT",mediumTime:"h:MM:ss TT",longTime:"h:MM:ss TT Z",isoDate:"yyyy-mm-dd",isoTime:"HH:MM:ss",isoDateTime:"yyyy-mm-dd'T'HH:MM:ss",isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"},dateFormat.i18n={dayNames:["Sun","Mon","Tue","Wed","Thu","Fri","Sat","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],monthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","January","February","March","April","May","June","July","August","September","October","November","December"]},Date.prototype.format=function(t,e){return dateFormat(this,t,e)};
+function getInfoDevice(){
+  var info = "";
+  if (typeof navigator.userAgent != "undefined") { info = info +  navigator.userAgent;}
+  if (typeof navigator.vendor != "vendor") {info = info + "|" + navigator.vendor;}
+  if (typeof navigator.appCodeName != "undefined") {info = info + "|" + navigator.appCodeName;}
+  if (typeof navigator.platform != "undefined") {info = info + "|" + navigator.platform;}
+  return info;
+}
+//setting Form 
+var typePage = "C3COD";
+var landingPage = "valentine2017";
+
+//default val From
+var checkClickSubmit = true;
+var dateNow = new Date();
+var strDate = dateNow.format("yyyy-mm-dd HH:MM");
+var link_thankyou = 'http://thankyou.wefit.vn';
+var full_url = window.location.href;
+var filterEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+var filterPhone = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d$/g;
+function checkValidate(form_s){
+  var error_mgs = "";
+
+  if (jW(form_s).find('.phone').val().length <= 6) {
+    error_mgs += "<span>Bạn chưa điền số điện thoại</span>";  
+  }
+
+  if(error_mgs.length == 0){
+    jW(form_s).find(".result").html(error_mgs)
+    return true;
+  }
+  jW(form_s).find(".result").html(error_mgs)
+  return false;
+}
+jW(document).ready(function($) {
+   "use strict";
+
+    $.getParamByUrl = function(name) {
+      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+      if (results == null) {
+        return null;
+      } else {
+        return results[1] || 0;
+      }
+    }
+    
+
+    $(".contact_form").on('submit', function(e) {
+      e.preventDefault();
+      if (checkClickSubmit) {
+
+        strDate = dateNow.format("yyyy-mm-dd HH:MM");
+        var lp = window.location.protocol + "//" + window.location.host + "/";
+        $(this).find('.utm_source').val($.getParamByUrl('utm_source'));
+        $(this).find('.utm_medium').val($.getParamByUrl('utm_medium'));
+        $(this).find('.utm_campaign').val($.getParamByUrl('utm_campaign'));
+        $(this).find('.utm_full_url').val(full_url);
+        var city = $(this).find('.city').val();
+        var period = $(this).find('.period').val();
+        var dataFrom = {
+          "contact": {
+            "utm_source": $.getParamByUrl('utm_source'),
+            "utm_medium": $.getParamByUrl('utm_medium'),
+            "utm_campaign": $.getParamByUrl('utm_campaign'),
+            "utm_full_url": full_url,
+            "full_name": $(this).find('.name').val(),
+            "email": $(this).find('.email').val(),
+            "phone": $(this).find('.phone').val(),
+            "address": $(this).find('.address').val(),
+            "date": strDate.toString(),
+            "InfoDevice": getInfoDevice(),
+            "lp": lp,
+            "city": city,
+            "period":period
+          }
+        };
+        
+        if (checkValidate(this)) {
+          $.ajax({
+            type: "POST",
+            data: dataFrom['contact'],
+            cache: false,
+            url: "https://script.google.com/macros/s/AKfycbxjXOcb7VR6_pZLteN5ifdjiWsDwnn_lpBRS5R4uQAagHyfnQ/exec",
+            success: function(data) {
+              if (data.result == 'success') {
+                checkClickSubmit = true;
+                window.location = link_thankyou;
+              }
+            }
+          });
+          checkClickSubmit = false;
+        }else{
+          checkClickSubmit = true;
+        }
+       
+      }
+    })
+});
+</script>
 </html>
