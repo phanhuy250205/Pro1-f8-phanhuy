@@ -1,4 +1,4 @@
-
+// Lấy các phần tử HTML từ DOM
 document.addEventListener('DOMContentLoaded', function() {
     const productGrid = document.getElementById('product-grid');
     const productDetailSection = document.getElementById('product-detail');
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 1,
             name: "Áo POLO NAM",
             price: 9.99,
-            description: "Áo polo nam Đẹp Thịnh Hành Yêu Thích Nhất, chất liệu cotton thoáng mát, thích hợp cho mọi hoàn cảnh.",
+            description: "Áo polo nam Đẹp Thịnh Hành Yêu Thích Nhất, chất liệu cotton thoáng mát, thích hợp cho mọi hoàn cảnh. Áo polo này có thiết kế đơn giản nhưng tinh tế, với các đường may chắc chắn và chất liệu cotton cao cấp. Màu sắc của áo được lựa chọn kỹ lưỡng để dễ dàng phối đồ với nhiều trang phục khác nhau. Đây là sự lựa chọn hoàn hảo cho những ngày hè nóng bức, khi bạn cần một chiếc áo vừa thoáng mát vừa phong cách. Áo cũng rất dễ giặt và không bị nhăn, giúp bạn luôn cảm thấy tự tin và thoải mái.",
             imageUrl: "./assets/css/img/sanpham1(ao).jpg"
         },
         {
@@ -152,71 +152,95 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "Thắt lưng nam cao cấp GUSKI chất liệu da bò thật chính hãng sang trọng G5, thiết kế tinh tế, hiện đại.",
             imageUrl: "./assets/css/img/sanpham19(thatlung)f.jpg"
         }
+        // Thêm các sản phẩm khác vào đây...
     ];
-    
 
-    let cart = [];
+   // Khôi phục giỏ hàng từ localStorage hoặc khởi tạo giỏ hàng rỗng
+   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    function renderProducts() {
-        products.forEach(product => {
-            const productCard = document.createElement('div');
-            productCard.classList.add('product-card');
-            productCard.innerHTML = `
-                <img src="${product.imageUrl}" alt="${product.name}">
-                <h2>${product.name}</h2>
-                <p class="price">$${product.price.toFixed(2)}</p>
-                <p class="description">${product.description}</p>
-                <a href="#" class="btn" data-id="${product.id}">Xem Sản Phẩm</a>
-            `;
-            productGrid.appendChild(productCard);
+  
 
-            productCard.querySelector('.btn').addEventListener('click', function(e) {
-                e.preventDefault();
-                showProductDetail(product.id);
-            });
-        });
-    }
+   // Hàm hiển thị danh sách sản phẩm
+   function renderProducts() {
+       products.forEach(product => {
+           // Tạo phần tử card cho từng sản phẩm
+           const productCard = document.createElement('div');
+           productCard.classList.add('product-card');
+           productCard.innerHTML = `
+               <img src="${product.imageUrl}" alt="${product.name}">
+               <h2>${product.name}</h2>
+               <p class="price">$${product.price.toFixed(2)}</p>
+               <p class="description">${product.description}</p>
+               <a href="#" class="btn" data-id="${product.id}">Xem Sản Phẩm</a>
+           `;
+           productGrid.appendChild(productCard);
+           
+           // Thêm sự kiện click cho nút xem sản phẩm
+           productCard.querySelector('.btn').addEventListener('click', function(e) {
+               e.preventDefault();
+               showProductDetail(product.id); // Hiển thị chi tiết sản phẩm khi nút được nhấn
+           });
+       });
+   }
 
+    // Hàm hiển thị chi tiết sản phẩm
     function showProductDetail(productId) {
-        const product = products.find(p => p.id === productId);
-        productTitle.textContent = product.name;
-        productPrice.textContent = `$${product.price.toFixed(2)}`;
-        productDescription.textContent = product.description;
-        productImages.innerHTML = '';
-        const img = document.createElement('img');
+        const product = products.find(p => p.id === productId); // Tìm sản phẩm theo id
+        productTitle.textContent = product.name; // Cập nhật tiêu đề sản phẩm
+        productPrice.textContent = `$${product.price.toFixed(2)}`; // Cập nhật giá sản phẩm
+        productDescription.textContent = product.description; // Cập nhật mô tả sản phẩm
+        productImages.innerHTML = ''; // Xóa các hình ảnh hiện tại
+        const img = document.createElement('img'); // Tạo phần tử img cho hình ảnh sản phẩm
         img.src = product.imageUrl;
-        productImages.appendChild(img);
+        productImages.appendChild(img); // Thêm hình ảnh vào phần tử hiển thị hình ảnh sản phẩm
 
-        productDetailSection.style.display = 'block';
-        document.querySelector('.products').style.display = 'none';
-        buyProductButton.setAttribute('data-id', product.id);
+        productDetailSection.style.display = 'block'; // Hiển thị phần chi tiết sản phẩm
+        productGrid.style.display = 'none'; // Ẩn lưới sản phẩm
+        buyProductButton.setAttribute('data-id', product.id); // Cập nhật id sản phẩm cho nút mua
     }
 
+    // Sự kiện click để quay lại danh sách sản phẩm
     backToProductsButton.addEventListener('click', function() {
-        productDetailSection.style.display = 'none';
-        document.querySelector('.products').style.display = 'flex';
+        productDetailSection.style.display = 'none'; // Ẩn phần chi tiết sản phẩm
+        productGrid.style.display = 'flex'; // Hiển thị lưới sản phẩm
     });
 
+    // Sự kiện click để thêm sản phẩm vào giỏ hàng
     buyProductButton.addEventListener('click', function() {
-        const productId = buyProductButton.getAttribute('data-id');
-        const product = products.find(p => p.id === productId);
-        cart.push(product);
-        updateCart();
+        const productId = parseInt(buyProductButton.getAttribute('data-id')); // Lấy id sản phẩm từ nút
+        const product = products.find(p => p.id === productId); // Tìm sản phẩm theo id
+        const existingProductIndex = cart.findIndex(p => p.id === productId); // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+
+        if (existingProductIndex > -1) {
+            cart[existingProductIndex].quantity += 1; // Nếu có, tăng số lượng sản phẩm
+        } else {
+            product.quantity = 1; // Nếu không, thêm sản phẩm mới vào giỏ hàng với số lượng 1
+            cart.push(product);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart)); // Lưu giỏ hàng vào localStorage
+        updateCart(); // Cập nhật số lượng và danh sách sản phẩm trong giỏ hàng
+        window.location.href = 'cart.html'; // Điều hướng đến trang giỏ hàng
     });
 
+    // Hàm cập nhật thông tin giỏ hàng
     function updateCart() {
-        cartCount.textContent = cart.length;
-        cartItems.innerHTML = '';
+        cartCount.textContent = cart.reduce((total, product) => total + product.quantity, 0); // Cập nhật số lượng sản phẩm trong giỏ hàng
+        cartItems.innerHTML = ''; // Xóa danh sách sản phẩm hiện tại trong giỏ hàng
         cart.forEach(product => {
+            // Tạo phần tử cho từng sản phẩm trong giỏ hàng
             const cartItem = document.createElement('div');
-            cartItem.textContent = `${product.name} - $${product.price.toFixed(2)}`;
+            cartItem.textContent = `${product.name} - $${product.price.toFixed(2)} (x${product.quantity})`;
             cartItems.appendChild(cartItem);
         });
-        cartItems.style.display = 'none';
+        cartItems.style.display = 'none'; // Ẩn danh sách sản phẩm trong giỏ hàng ban đầu
         cartCount.addEventListener('click', function() {
+            // Hiển thị hoặc ẩn danh sách sản phẩm trong giỏ hàng khi số lượng được nhấn
             cartItems.style.display = cartItems.style.display === 'none' ? 'block' : 'none';
         });
     }
+    
 
-    renderProducts();
+    renderProducts(); // Hiển thị danh sách sản phẩm khi trang được tải
+    updateCart(); // Cập nhật thông tin giỏ hàng khi trang được tải
 });

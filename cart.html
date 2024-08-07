@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Reset một số kiểu mặc định */
+        
+        body, h1, h2, p, a, div, section, header, main, button, select {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Định dạng cho các mục trong giỏ hàng */
+        #cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Khoảng cách giữa các mục */
+            padding: 20px;
+        }
+
+        /* Định dạng cho từng sản phẩm */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px; /* Tăng độ bo góc */
+        }
+
+        /* Định dạng cho hình ảnh sản phẩm */
+        .cart-item img {
+            max-width: 100px; /* Kích thước tối đa của hình ảnh */
+            height: auto; /* Giữ tỉ lệ kích thước */
+            margin-right: 20px; /* Khoảng cách giữa hình ảnh và thông tin sản phẩm */
+            border-radius: 5px;
+        }
+
+        /* Định dạng thông tin sản phẩm */
+        .cart-item-info {
+            flex: 1; /* Lấy hết không gian còn lại */
+        }
+
+        /* Định dạng cho tiêu đề và thông tin sản phẩm */
+        .cart-item-info h2 {
+            font-size: 20px; /* Kích thước tiêu đề sản phẩm */
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .cart-item-info p {
+            font-size: 16px; /* Kích thước thông tin giá */
+            color: #666;
+        }
+
+        /* Định dạng cho giá sản phẩm */
+        .cart-item-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 48px; /* Khoảng cách giữa giá và thông tin sản phẩm */
+            margin-right: 30px;
+            margin-top: 19px;
+            color: black;
+        }
+
+        /* Định dạng cho tùy chọn size và màu sắc */
+        .cart-item-options {
+            margin-top: 10px;
+        }
+
+        .cart-item-options label {
+            margin-right: 5px;
+        }
+
+        .cart-item-options select {
+            margin-right: 10px;
+        }
+
+        /* Định dạng cho nút xóa */
+        .cart-item-remove {
+            cursor: pointer;
+            color: #181616;
+            text-decoration: underline;
+            width: 100px;
+            height: 35px;
+            margin-top: 13px ;
+        }
+
+        .cart-item-remove:hover {
+            color: #cc2900;
+        }
+
+        /* Định dạng cho nút thanh toán */
+        .buttons-container {
+            display: flex;
+            justify-content: flex-end; /* Đặt nút thanh toán nằm bên phải */
+            margin-top: 20px;
+        }
+
+        .buttons-container button {
+            background-color: #71dee6;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .buttons-container button:hover {
+            background-color: #174bd8;
+        }
+
+        /* Định dạng cho bảng tổng hợp thông tin */
+        #summary-container {
+            margin-top: 20px;
+            padding: 20px; /* Thêm padding cho bảng tổng hợp */
+            background-color: #f4f4f4; /* Thay đổi màu nền */
+            border-radius: 8px; /* Bo góc cho bảng tổng hợp */
+        }
+
+        #summary-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        #summary-container table, #summary-container th, #summary-container td {
+            border: 1px solid #ddd;
+        }
+
+        #summary-container th, #summary-container td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        #summary-container th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        #summary-container td {
+            background-color: #fff;
+            color: #333;
+        }
+
+        #summary-container h2 {
+            margin-bottom: 10px;
+        }
+
+        .giohang {
+            background-color: #f4f4f4; 
+            padding: 20px; 
+            text-align: center; 
+            border-bottom: 2px solid #ddd; 
+        }
+
+        .giohang h1 {
+            font-size: 2em; 
+            color: #333; 
+            margin: 0; 
+        }
+
+        .giohang a {
+            display: inline-block; 
+            margin-top: 10px; 
+            font-size: 1.2em; 
+            color: #007bff; 
+            text-decoration: none; 
+        }
+
+        .giohang a:hover {
+            text-decoration: underline; 
+            color: #0056b3; 
+        }
+        .check{
+            margin-top: -46px;
+
+        }
+    </style>
+</head>
+<body>
+    <header class="giohang">
+        <h1>Giỏ Hàng</h1>
+        <a href="quanao.html">Quay lại cửa hàng</a>
+    </header>
+
+    <main>
+        <section id="cart-items"></section>
+        <section id="summary-container"></section>
+        <div id="total-price" style="margin-top: 20px; font-size: 24px; font-weight: bold; color: #050505;"></div>
+        <div class="buttons-container">
+            <button id="checkout-button" class="check">Thanh toán</button>
+        </div>
+    </main>
+
+    <script src="./js/cart.js"></script>
+</body>
+</html>

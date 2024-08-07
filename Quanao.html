@@ -9,6 +9,7 @@
 </head>
 <body>
     <script src="./js/quanao.js"></script>
+    
     <main>
         <!-- Header -->
         <header class="header">
@@ -16,35 +17,39 @@
                 <nav class="navbar">
                     <!-- Logo -->
                     <!-- Logo -->
-                <img src="./assets/css/img/Logo.svg" alt="Besnik." class="logo1" width="80px">
+                    <a href="index.html">
+                        <img src="./assets/css/img/Logo.svg" alt="Besnik." class="logo1" width="80px">
+                    </a>
                 
                 <!-- Navigation -->
                 <ul>
                     <li>
-                        <form action="" class="search-form">
+                        <form action="" class="search-form" id="search-form">
                             <label for="timkiem" style="font-size: 1.6rem;">Tìm Kiếm</label>
                             <input type="text" class="timkiem" id="timkiem">
                             <button type="submit" class="search-btn">Search</button>
                         </form>
+                        
                     </li>
                                                                                                                                                                                        
                 </ul>
                 <div class="actions">
                     
-                    <a href="#" id="cart-icon">
+                    <a href="cart.html" id="cart-icon">
                         <img src="./assets/css/img/store.png" alt="">
                         <div id="cart-items" style="display: none; position: absolute;top: 130px; background-color: rgb(231, 230, 230);"></div>
                         <span id="cart-count">0</span>
                     </a>
-                    <a href="#" class="action-link">Sign in</a>
+                
                     <a href="#" class="btn action-btn">Sign up</a>
                 </div>
+                
         </header>
 
         <!-- Sản Phẩm -->
+
         <section class="products">
             <div class="content">
-                <h1>Sản Phẩm</h1>
                 <div class="product-grid" id="product-grid">
                     <!-- Các sản phẩm sẽ được chèn vào đây bởi JavaScript -->
                 </div>
@@ -60,15 +65,14 @@
                 <p class="price" id="product-price">$0.00</p>
                 <p class="description" id="product-description">Mô tả sản phẩm </p>
                 <div class="button-container">
-                    <button class="btn" id="buy-product">Mua</button>
+                    <button class="btn" id="buy-product">Thêm Vào Giỏ Hàng</button>
                     <button class="btn" id="back-to-products">Quay lại</button>
                 </div>
             </div>
         </section>
-        <!-- Danh sách sản phầm -->
-
-        
+ 
     </main>
+
     <footer>
         <div class="content">
             <p>&copy; 2024 Your Shop Name. All rights reserved.</p>

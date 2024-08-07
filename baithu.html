@@ -1,152 +1,151 @@
+<script>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form id="contact_form" method="post" class="pix_form contact_form" pix-confirm="hidden_pix_4">
-        <div class="result"></div>
-        <input type="hidden" name="send" value="Y">
-        <input type="hidden" name="ok" value="no">
+document.addEventListener('DOMContentLoaded', function() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const checkoutButton = document.getElementById('checkout-button');
+    const totalPriceContainer = document.getElementById('total-price');
+    const summaryContainer = document.getElementById('summary-container');
     
-        <input type="hidden" class="bx-input utm_source" name="utm_source" value="" />
-        <input type="hidden" class="bx-input utm_medium" name="utm_medium" value="" />
-        <input type="hidden" class="bx-input utm_campaign" name="utm_campaign" value="" />
-        <input type="hidden" class="bx-input utm_full_url" name="utm_full_url" value="" />
-        <input type="hidden" class="bx-input period" name="period" value="2 tuần" />
-    
-        <input type="text" name="name" placeholder="Họ và tên" class="pix_text name">
-        <input type="email" name="email_work" placeholder="Email" class="pix_text email">
-        <input type="text" name="phone_mobile" placeholder="Số điện thoại" class="pix_text phone">
-        <span class="send_btn">
-            <button type="submit" class="submit_btn green_1_bg pix_text" id="submit_btn_6">
-                <span class="editContent">Đăng ký mua ngay</span>
-            </button>
-        </span>
-    </form>
-    <style>
-        
-.contact_form { max-width: 300px; }
-.contact_form button.submit_btn { margin-bottom: 10px; }
-.contact_form input, .contact_form input:focus, .contact_form select, .contact_form textarea, .contact_form textarea:focus { 
-  width: 100%; background: #fff; border: 2px solid #eee; border-radius: 3px; padding: 15px 10px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700; font-size: 14px; outline: none; font: 13px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #777; margin: 0; max-width: 100%; display: block; margin-bottom: 20px; 
-  -moz-box-sizing: initial;
-}
-.contact_form .submit_btn, .contact_form .submit_btn:focus, .contact_form .submit_btn:hover { background: #ff6800; width: 100%; padding: 15px 0; outline: none; border: none; color: #fff; box-shadow: 0 -3px rgba(0, 0, 0, 0.2) inset; font-size: 16px; text-shadow: none; -webkit-transition: all .2s linear; -moz-transition: all .2s linear; -ms-transition: all .2s linear; -o-transition: all 0.2s linear; }
-.contact_form .submit_btn:hover { opacity: 0.7; }
-.contact_form .submit_btn:focus { opacity: .7; box-shadow: none; }
-.contact_form div#result > span { color: red; width: 100%; display: inline-block; }
-.contact_form div#result { padding-bottom: 10px; }
-.contact_form div.fcity { margin-bottom: 10px; }
-.contact_form div.fcity { display: inline-block; width: 100%; }
-.contact_form div.fcity > label, .contact_form div.fcity > select { width: 100%; display: inline-block; float: left; background: #fff; border: 2px solid #eee; border-radius: 3px; padding: 5px 10px; height: 50px !important; line-height: 22px !important; }
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    </style>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-var jW = $.noConflict();
-var dateFormat=function(){var t=/d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,e=/\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,a=/[^-+\dA-Z]/g,m=function(t,e){for(t=String(t),e=e||2;t.length<e;)t="0"+t;return t};return function(d,n,r){var y=dateFormat;if(1!=arguments.length||"[object String]"!=Object.prototype.toString.call(d)||/\d/.test(d)||(n=d,d=void 0),d=d?new Date(d):new Date,isNaN(d))throw SyntaxError("invalid date");n=String(y.masks[n]||n||y.masks["default"]),"UTC:"==n.slice(0,4)&&(n=n.slice(4),r=!0);var s=r?"getUTC":"get",i=d[s+"Date"](),o=d[s+"Day"](),u=d[s+"Month"](),M=d[s+"FullYear"](),l=d[s+"Hours"](),T=d[s+"Minutes"](),h=d[s+"Seconds"](),c=d[s+"Milliseconds"](),g=r?0:d.getTimezoneOffset(),S={d:i,dd:m(i),ddd:y.i18n.dayNames[o],dddd:y.i18n.dayNames[o+7],m:u+1,mm:m(u+1),mmm:y.i18n.monthNames[u],mmmm:y.i18n.monthNames[u+12],yy:String(M).slice(2),yyyy:M,h:l%12||12,hh:m(l%12||12),H:l,HH:m(l),M:T,MM:m(T),s:h,ss:m(h),l:m(c,3),L:m(c>99?Math.round(c/10):c),t:12>l?"a":"p",tt:12>l?"am":"pm",T:12>l?"A":"P",TT:12>l?"AM":"PM",Z:r?"UTC":(String(d).match(e)||[""]).pop().replace(a,""),o:(g>0?"-":"+")+m(100*Math.floor(Math.abs(g)/60)+Math.abs(g)%60,4),S:["th","st","nd","rd"][i%10>3?0:(i%100-i%10!=10)*i%10]};return n.replace(t,function(t){return t in S?S[t]:t.slice(1,t.length-1)})}}();dateFormat.masks={"default":"ddd mmm dd yyyy HH:MM:ss",shortDate:"m/d/yy",mediumDate:"mmm d, yyyy",longDate:"mmmm d, yyyy",fullDate:"dddd, mmmm d, yyyy",shortTime:"h:MM TT",mediumTime:"h:MM:ss TT",longTime:"h:MM:ss TT Z",isoDate:"yyyy-mm-dd",isoTime:"HH:MM:ss",isoDateTime:"yyyy-mm-dd'T'HH:MM:ss",isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"},dateFormat.i18n={dayNames:["Sun","Mon","Tue","Wed","Thu","Fri","Sat","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],monthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","January","February","March","April","May","June","July","August","September","October","November","December"]},Date.prototype.format=function(t,e){return dateFormat(this,t,e)};
-function getInfoDevice(){
-  var info = "";
-  if (typeof navigator.userAgent != "undefined") { info = info +  navigator.userAgent;}
-  if (typeof navigator.vendor != "vendor") {info = info + "|" + navigator.vendor;}
-  if (typeof navigator.appCodeName != "undefined") {info = info + "|" + navigator.appCodeName;}
-  if (typeof navigator.platform != "undefined") {info = info + "|" + navigator.platform;}
-  return info;
-}
-//setting Form 
-var typePage = "C3COD";
-var landingPage = "valentine2017";
+    function renderCart() {
+        cartItemsContainer.innerHTML = '';
 
-//default val From
-var checkClickSubmit = true;
-var dateNow = new Date();
-var strDate = dateNow.format("yyyy-mm-dd HH:MM");
-var link_thankyou = 'http://thankyou.wefit.vn';
-var full_url = window.location.href;
-var filterEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-var filterPhone = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d$/g;
-function checkValidate(form_s){
-  var error_mgs = "";
+        cart.forEach((item, index) => {
+            const isPerfumeOrBelt = item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng');
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <div class="cart-item-info">
+                    <img src="${item.imageUrl}" alt="${item.name}">
+                    <div>
+                        <h2>${item.name}</h2>
+                        <p>$${item.price.toFixed(2)}</p>
+                        ${isPerfumeOrBelt ? '' : `
+                        <div class="cart-item-options">
+                            <label for="size-${index}">Size:</label>
+                            <select id="size-${index}" class="size-select" data-index="${index}">
+                                <option value="">Chọn Size</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                            <label for="color-${index}">Màu:</label>
+                            <select id="color-${index}" class="color-select" data-index="${index}">
+                                <option value="">Chọn Màu</option>
+                                <option value="Đỏ">Đỏ</option>
+                                <option value="Xanh">Xanh</option>
+                                <option value="Đen">Đen</option>
+                                <option value="Trắng">Trắng</option>
+                            </select>
+                            <label for="quantity-${index}">Số lượng:</label>
+                            <select id="quantity-${index}" class="quantity-select" data-index="${index}">
+                                ${Array.from({ length: 10 }, (_, i) => i + 1).map(num => 
+                                    `<option value="${num}" ${item.quantity === num ? 'selected' : ''}>${num}</option>`
+                                ).join('')}
+                            </select>
+                        </div>`}
+                    </div>
+                </div>
+                <div class="cart-item-price">$${(item.price * (item.quantity || 1)).toFixed(2)}</div>
+                <div class="cart-item-remove">Xóa</div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
 
-  if (jW(form_s).find('.phone').val().length <= 6) {
-    error_mgs += "<span>Bạn chưa điền số điện thoại</span>";  
-  }
+            if (!isPerfumeOrBelt) {
+                cartItem.querySelector('.size-select').addEventListener('change', function() {
+                    const selectedIndex = this.getAttribute('data-index');
+                    cart[selectedIndex].size = this.value;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateSummary();
+                });
 
-  if(error_mgs.length == 0){
-    jW(form_s).find(".result").html(error_mgs)
-    return true;
-  }
-  jW(form_s).find(".result").html(error_mgs)
-  return false;
-}
-jW(document).ready(function($) {
-   "use strict";
+                cartItem.querySelector('.color-select').addEventListener('change', function() {
+                    const selectedIndex = this.getAttribute('data-index');
+                    cart[selectedIndex].color = this.value;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateSummary();
+                });
 
-    $.getParamByUrl = function(name) {
-      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-      if (results == null) {
-        return null;
-      } else {
-        return results[1] || 0;
-      }
-    }
-    
-
-    $(".contact_form").on('submit', function(e) {
-      e.preventDefault();
-      if (checkClickSubmit) {
-
-        strDate = dateNow.format("yyyy-mm-dd HH:MM");
-        var lp = window.location.protocol + "//" + window.location.host + "/";
-        $(this).find('.utm_source').val($.getParamByUrl('utm_source'));
-        $(this).find('.utm_medium').val($.getParamByUrl('utm_medium'));
-        $(this).find('.utm_campaign').val($.getParamByUrl('utm_campaign'));
-        $(this).find('.utm_full_url').val(full_url);
-        var city = $(this).find('.city').val();
-        var period = $(this).find('.period').val();
-        var dataFrom = {
-          "contact": {
-            "utm_source": $.getParamByUrl('utm_source'),
-            "utm_medium": $.getParamByUrl('utm_medium'),
-            "utm_campaign": $.getParamByUrl('utm_campaign'),
-            "utm_full_url": full_url,
-            "full_name": $(this).find('.name').val(),
-            "email": $(this).find('.email').val(),
-            "phone": $(this).find('.phone').val(),
-            "address": $(this).find('.address').val(),
-            "date": strDate.toString(),
-            "InfoDevice": getInfoDevice(),
-            "lp": lp,
-            "city": city,
-            "period":period
-          }
-        };
-        
-        if (checkValidate(this)) {
-          $.ajax({
-            type: "POST",
-            data: dataFrom['contact'],
-            cache: false,
-            url: "https://script.google.com/macros/s/AKfycbxjXOcb7VR6_pZLteN5ifdjiWsDwnn_lpBRS5R4uQAagHyfnQ/exec",
-            success: function(data) {
-              if (data.result == 'success') {
-                checkClickSubmit = true;
-                window.location = link_thankyou;
-              }
+                cartItem.querySelector('.quantity-select').addEventListener('change', function() {
+                    const selectedIndex = this.getAttribute('data-index');
+                    cart[selectedIndex].quantity = parseInt(this.value, 10);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+                });
             }
-          });
-          checkClickSubmit = false;
-        }else{
-          checkClickSubmit = true;
+
+            cartItem.querySelector('.cart-item-remove').addEventListener('click', function() {
+                removeItem(index);
+            });
+        });
+
+        updateSummary();
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+    }
+
+    function updateSummary() {
+        let totalPrice = 0;
+        let summaryHtml = `
+            <h2>Thông tin đơn hàng</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Size</th>
+                        <th>Màu</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        cart.forEach(item => {
+            summaryHtml += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.size || (item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng') ? 'Không Có' : 'Chưa chọn')}</td>
+                    <td>${item.color || (item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng') ? 'Không Có' : 'Chưa chọn')}</td>
+                    <td>${item.quantity || 1}</td>
+                    <td>$${(item.price * (item.quantity || 1)).toFixed(2)}</td>
+                </tr>
+            `;
+            totalPrice += item.price * (item.quantity || 1);
+        });
+
+        summaryHtml += `
+                </tbody>
+            </table>
+        `;
+
+        summaryContainer.innerHTML = summaryHtml;
+        totalPriceContainer.innerHTML = `Tổng giá: $${totalPrice.toFixed(2)}`;
+    }
+
+    function validateCart() {
+        return cart.every(item => 
+            (item.size || item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng'))
+            && (item.color || item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng'))
+            && item.quantity
+        );
+    }
+
+    checkoutButton.addEventListener('click', function() {
+        if (validateCart()) {
+            alert('Thanh toán thành công!');
+        } else {
+            alert('Vui lòng kiểm tra lại giỏ hàng của bạn.');
         }
-       
-      }
-    })
+    });
+
+    renderCart();
 });
+
 </script>
-</html>

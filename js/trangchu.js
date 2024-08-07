@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     // Lắng nghe sự kiện click trên các nút có lớp 'actions'
-    const buttons = document.querySelectorAll('.info a');
+    const buttons = document.querySelectorAll('.btn');
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            alert('Mời Bạn Đăng Nhập !');
+            // alert('Mời Bạn Đăng Nhập !');
+
+            var evnetList = confirm('Mời Bạn Đăng Nhập')
+            if(evnetList){
+                window.location.href  = 'login.html'
+            }
         });
     });
 
@@ -26,7 +31,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         searchForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const searchTerm = searchInput.value.trim();
+
             alert('Bạn muốn tìm gì: ' + searchTerm);
+
         });
     }
 });
