@@ -1,4 +1,3 @@
-// Lấy các phần tử HTML từ DOM
 document.addEventListener('DOMContentLoaded', function() {
     const productGrid = document.getElementById('product-grid');
     const productDetailSection = document.getElementById('product-detail');
@@ -12,176 +11,276 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartItems = document.getElementById('cart-items');
 
     const products = [
+        // Dữ liệu sản phẩm như trước
         {
             id: 1,
-            name: "Áo POLO NAM",
-            price: 9.99,
-            description: "Áo polo nam Đẹp Thịnh Hành Yêu Thích Nhất, chất liệu cotton thoáng mát, thích hợp cho mọi hoàn cảnh. Áo polo này có thiết kế đơn giản nhưng tinh tế, với các đường may chắc chắn và chất liệu cotton cao cấp. Màu sắc của áo được lựa chọn kỹ lưỡng để dễ dàng phối đồ với nhiều trang phục khác nhau. Đây là sự lựa chọn hoàn hảo cho những ngày hè nóng bức, khi bạn cần một chiếc áo vừa thoáng mát vừa phong cách. Áo cũng rất dễ giặt và không bị nhăn, giúp bạn luôn cảm thấy tự tin và thoải mái.",
-            imageUrl: "./assets/css/img/sanpham1(ao).jpg"
+            name: "Loose Fit Printed T-shirt",
+            price: 8.99,
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed motif and a generous but not oversized silhouette. Ribbed crew neck and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao1.jpg",
+            title : "ao"
         },
         {
             id: 2,
-            name: "Áo POLO NAM",
-            price: 19.99,
-            description: "Áo polo nam phối túi thêu chữ Mã: HT32, thiết kế trẻ trung, hiện đại với màu sắc phong phú.",
-            imageUrl: "./assets/css/img/ao1.jpg"
+            name: "Loose Fit Printed T-shirt",
+            price: 8.99,
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed motif and a generous but not oversized silhouette. Ribbed crew neck and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao2.jpg",
+             title : "ao"
+
         },
         {
             id: 3,
-            name: "ÁO SƠ MI TH1",
-            price: 29.99,
-            description: "Áo sơ mi nam phối túi thêu chữ Mã: HT33, vải cao cấp, chống nhăn, dễ ủi.",
-            imageUrl: "./assets/css/img/sanpham2(ao).jpg"
+            name: "Loose Fit Printed T-shirt",
+            price: 9.99,
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed design and generous but not oversized silhouette. Ribbed crew neck, dropped shoulders, and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao3.jpg",
+             title : "ao"
+
         },
         {
             id: 4,
-            name: "ÁO SƠ MI",
-            price: 39.99,
-            description: "Áo sơ mi nam, thiết kế cổ điển với chất liệu thoáng mát, dễ chịu.",
-            imageUrl: "./assets/css/img/sanpham3(ao).jpg"
+            name: "Loose Fit Printed T-shirt",
+            price: 17.99,
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed design and generous but not oversized silhouette. Ribbed crew neck, dropped shoulders, and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao5.jpg",
+            title : "ao"
         },
         {
             id: 5,
-            name: "ÁO SƠ MI",
+            name: "Slim Fit Cable-knit Polo Shirt",
             price: 49.99,
-            description: "Sản phẩm được yêu thích nhất, áo sơ mi nam phong cách lịch lãm, phù hợp cho công sở.",
-            imageUrl: "./assets/css/img/sanpham4(ao).jpg"
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed design and generous but not oversized silhouette. Ribbed crew neck, dropped shoulders, and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao7.jpg",
+            title : "ao"
         },
         {
             id: 6,
-            name: "Quần Tây Mã Nam TH1",
-            price: 29.99,
-            description: "Quần Nam Được yêu thích nhất hiện nay, chất liệu cao cấp, phù hợp cho cả công sở và dạo phố.",
-            imageUrl: "./assets/css/img/sanpham5(quan).jpg"
+            name: "Loose Fit T-shirt",
+            price: 19.99,
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed design and generous but not oversized silhouette. Ribbed crew neck, dropped shoulders, and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao8.jpg",
+            title : "ao"
         },
         {
             id: 7,
-            name: "Quần Tây Mã Nam TH2",
-            price: 59.99,
-            description: "Quần tây nam chất liệu cao cấp, thiết kế sang trọng, thích hợp cho các sự kiện quan trọng.",
-            imageUrl: "./assets/css/img/sanpham6(Quan).jpg"
+            name: "Loose Fit T-shirt",
+            price: 19.99,
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed design and generous but not oversized silhouette. Ribbed crew neck, dropped shoulders, and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao9.jpg",
+            title : "ao"
         },
         {
             id: 8,
-            name: "Quần Tây Mã Nam TH3",
+            name: "Slim Fit Textured-knit Polo Shirt",
             price: 79.99,
-            description: "Quần tây nam thiết kế hiện đại, đường may chắc chắn, chất liệu mềm mại.",
-            imageUrl: "./assets/css/img/sanpham7(quan).jpg"
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed design and generous but not oversized silhouette. Ribbed crew neck, dropped shoulders, and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao10.jpg",
+            title : "ao"
         },
         {
             id: 9,
-            name: "Quần Tây Mã Nam TH4",
-            price: 109.99,
-            description: "Quần tây nam cao cấp, thiết kế đẳng cấp, chất liệu thoáng mát, dễ chịu.",
-            imageUrl: "./assets/css/img/sanpham8(quan).jpg"
+            name: "Loose Fit Printed T-shirt",
+            price: 19.99,
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed design and generous but not oversized silhouette. Ribbed crew neck, dropped shoulders, and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao11.jpg",
+            title : "ao"            
         },
         {
             id: 10,
-            name: "Quần Tây Mã Nam TH5",
-            price: 119.99,
-            description: "Quần tây nam phong cách lịch lãm, thích hợp cho mọi lứa tuổi, dễ dàng phối đồ.",
-            imageUrl: "./assets/css/img/sanpham9(quan).jpg"
+            name: "Regular Fit Long-Sleeved Waffled Shirt",
+            price: 24.99,
+            description: "Loose-fit T-shirt in medium weight cotton jersey with a printed design and generous but not oversized silhouette. Ribbed crew neck, dropped shoulders, and a straight-cut hem.",
+            imageUrl: "./assets/css/img/sanphamao12.jpg",
+            title : "ao"                
         },
         {
             id: 11,
-            name: "Nước Hoa Ultra Male CHIC PERFUME",
-            price: 119.99,
-            description: "Phong cách nam tính, cuốn hút, mùi hương đặc trưng, bền lâu suốt cả ngày.",
-            imageUrl: "./assets/css/img/sanpham10(nuochoa).jpg"
+            name: "Baggy Jeans",
+            price: 39.99,
+            description: "5-pocket jeans in rigid cotton denim. Baggy fit from seat to hem with plenty of room around legs. Regular waist, zip fly, and dropped gusset. Rounded legs, stacked at ankle. It's denim perfection.",
+            imageUrl: "./assets/css/img/sanphamquan1.jpg",
+            title : 'quan'
         },
         {
             id: 12,
-            name: "Nước Hoa Nam Dior SAUVAGE",
-            price: 119.99,
-            description: "Chuẩn Auth - Hương Thơm Cực Cuốn, Nam Tính, thích hợp cho mọi sự kiện.",
-            imageUrl: "./assets/css/img/sanpham11(nuochoa).jpg"
+            name: "Baggy Jeans",
+            price: 39.99,
+            description: "5-pocket jeans in rigid cotton denim. Baggy fit from seat to hem with plenty of room around legs. Regular waist, zip fly, and dropped gusset. Rounded legs, stacked at ankle. It's denim perfection.",
+            imageUrl: "./assets/css/img/sanphamquan2.jpg",
+            title : 'quan'
         },
         {
             id: 13,
-            name: "Nước Hoa Nam Gucci Guilty Pour Homme",
-            price: 119.99,
-            description: "Chuẩn Auth - Mạnh Mẽ, Gợi Cảm, Lãng Mạn, mang lại sự tự tin cho phái mạnh.",
-            imageUrl: "./assets/css/img/sanpham12(nuochoa).jpg"
+            name: "Baggy Jeans",
+            price: 39.99,
+            description: "5-pocket jeans in rigid cotton denim. Baggy fit from seat to hem with plenty of room around legs. Regular waist, zip fly, and dropped gusset. Rounded legs, stacked at ankle. It's denim perfection.",
+            imageUrl: "./assets/css/img/sanphamquan3.jpg",
+            title : 'quan'
         },
         {
             id: 14,
-            name: "Nước Hoa Nam Chính Hãng Sexy Men",
+            name: "Baggy Cargo Jeans",
             price: 119.99,
-            description: "Hương Thơm Nam Tính, Sang Trọng - Lua Perfume, sự lựa chọn hoàn hảo cho quý ông.",
-            imageUrl: "./assets/css/img/sanpham13(nuochoa).jpg"
+            description: "Cargo jeans in rigid cotton denim. Baggy fit from seat to hems with plenty of room around legs. Regular waist, zip fly, and dropped gusset. Diagonal side pockets, open back pockets, and leg pockets with flap. Rounded legs, stacked at ankle. Designed for everyday wear.",
+            imageUrl: "./assets/css/img/sanphamquan4.jpg",
+            title : 'quan'
         },
         {
             id: 15,
-            name: "Nước Hoa Nam Valentino uomo intense CHIC PERFUME",
+            name: "Baggy Cargo Jeans",
             price: 119.99,
-            description: "Nước Hoa Nam chính hãng Valentino uomo intense CHIC PERFUME phong cách ấm áp, hiện đại, thích hợp cho mùa đông.",
-            imageUrl: "./assets/css/img/sanpham14(nuochoa)5.jpg"
+            description: "Cargo jeans in rigid cotton denim. Baggy fit from seat to hems with plenty of room around legs. Regular waist, zip fly, and dropped gusset. Diagonal side pockets, open back pockets, and leg pockets with flap. Rounded legs, stacked at ankle. Designed for everyday wear.",
+            imageUrl: "./assets/css/img/sanphamquan5.jpg"
         },
         {
             id: 16,
-            name: "Thắt Lưng Nam",
+            name: "Slim Jeans",
             price: 119.99,
-            description: "Thắt Lưng Dây Nịt Nam Da Bò Thật Khóa Tự Động Cao Cấp Thương Hiệu Y2010 Full Box Bảo Hành 12 Tháng D14 19857 |YaMe|.",
-            imageUrl: "./assets/css/img/sanpham15(thatlung).jpg"
+            description: "Straight-leg, 5-pocket jeans in cotton denim with gentle stretch for added comfort. Slim fit from waist through thighs. Regular waist and zip fly. Easily styled for a sleek or sporty look.",
+            imageUrl: "./assets/css/img/sanphamquan6.jpg",
+            title : 'quan'
         },
         {
             id: 17,
-            name: "Thắt lưng nam HARDENPOLO",
+            name: "Straight Regular Jeans",
             price: 119.99,
-            description: "Thắt lưng nam HARDENPOLO chữ H da bò cao cấp EL14, thiết kế đẳng cấp, bền bỉ.",
-            imageUrl: "./assets/css/img/sanpham16(thatlung).jpg"
+            description: "5-pocket, straight-leg jeans in durable cotton denim with gentle stretch for added comfort. Regular waist and zip fly. Regular fit with a comfortable, looser feel around legs.",
+            imageUrl: "./assets/css/img/sanphamquan7.jpg",
+            title : 'quan'
         },
         {
             id: 18,
-            name: "Thắt lưng nam Faiaoepolo",
+            name: "Wide Jeans",
             price: 119.99,
-            description: "Thắt lưng nam , dây nịt nam cao cấp Faiaoepolo Full hộp đựng V100, thiết kế sang trọng, phù hợp cho mọi dịp.",
-            imageUrl: "./assets/css/img/sanpham17(thatlung).jpg"
+            description: "5-pocket jeans in rigid cotton denim. Loose fit from seat to hem and wide legs with extra room. Regular waist, zip fly, and a narrow, removable tie belt. Dropped gusset. This is denim that lasts.",
+            imageUrl: "./assets/css/img/sanphamquan8.jpg",
+            title : 'quan'
         },
         {
             id: 19,
-            name: "Thắt lưng nam cao cấp WilliamPOLO",
+            name: "Baggy Jeans",
             price: 119.99,
-            description: "Thắt lưng nam cao cấp WilliamPOLO , dây nịt nam cao cấp ROYAL.ARTDUCDO, mang lại vẻ đẹp quý phái.",
-            imageUrl: "./assets/css/img/sanpham18(thatlung).jpg"
+            description: "5-pocket jeans in rigid cotton denim. Baggy fit from seat to hem with plenty of room around legs. Regular waist, zip fly, and dropped gusset. Rounded legs, stacked at ankle. It's denim perfection.",
+            imageUrl: "./assets/css/img/sanphamquan9.jpg",
+            title : 'quan'
         },
         {
             id: 20,
-            name: "Thắt lưng nam GUSKI",
+            name: "Baggy Jeans",
             price: 119.99,
-            description: "Thắt lưng nam cao cấp GUSKI chất liệu da bò thật chính hãng sang trọng G5, thiết kế tinh tế, hiện đại.",
-            imageUrl: "./assets/css/img/sanpham19(thatlung)f.jpg"
-        }
-        // Thêm các sản phẩm khác vào đây...
+            description: "5-pocket jeans in rigid cotton denim. Loose fit from seat to hem and wide legs with extra room. Regular waist, zip fly, and a narrow, removable tie belt. Dropped gusset. This is denim that lasts.",
+            imageUrl: "./assets/css/img/sanphamquan10.jpg",
+            title : 'quan'
+        },
+        {
+            id: 21,
+            name: "3-pack Necklaces",
+            price: 9.99,
+            description: "Metal necklaces in various designs. Trigger clasp.",
+            imageUrl: "./assets/css/img/phukien1.jpg",
+            title:"phukien"
+        },
+        {
+            id: 22,
+            name: "Elasticized Fabric Belt",
+            price: 19.99,
+            description: "Braided, elasticized fabric belt with faux leather details and metal buckle. Width approx. 1 1/2 in.",
+            imageUrl: "./assets/css/img/phukien2.jpg",
+            title:"phukien"
+        },
+        {
+            id: 23,
+            name: "3-pack Bracelets",
+            price: 29.99,
+            description: "Leather belt with a metal buckle. Width 1 in.",
+            imageUrl: "./assets/css/img/phukien3.jpg",
+            title:"phukien"
+        },
+        {
+            id: 24,
+            name: "Backpack",
+            price: 39.99,
+            description: "Backpack in woven fabric. Padded, adjustable shoulder straps, handle and drawstring closure at top, and flap with adjustable straps, each with a plastic snap lock. Upper pocket with zipper, open side pockets, outer compartment at front with zipper, and an inner compartment at back for laptop storage. Padded backplate. Lined.",
+            imageUrl: "./assets/css/img/phukien4.jpg",
+            title:"phukien"
+        },
+        {
+            id: 25,
+            name: "2-pack Necklaces",
+            price: 49.99,
+            description: "Sản phẩm được yêu thích nhất, áo sơ mi nam phong cách lịch lãm, phù hợp cho công sở.",
+            imageUrl: "./assets/css/img/phukien5.jpg",
+            title:"phukien"
+        },
+        {
+            id: 26,
+            name: "Backpack",
+            price: 19.99,
+            description: "Backpack in woven fabric with padded, adjustable shoulder straps. Handle and zipper at top, outer compartment with zipper, and an open inner compartment with space for a laptop. Padded backplate. Lined. Width 12 1/4 in. Height 17 in. Depth 3 1/4 in.",
+            imageUrl: "./assets/css/img/phukien6.jpg",
+            title:"phukien"
+        },
+        {
+            id: 27,
+            name: "Small Shoulder Bag",
+            price: 59.99,
+            description: "Small shoulder bag in woven fabric. Adjustable shoulder strap with slider buckle. Zipper at top, three outer compartments with flap and hook-loop closure, and an inner compartment. Width 6 3/4 in. Height 7 1/2 in. Depth 2 in. Lined.",
+            imageUrl: "./assets/css/img/phukien7.jpg"
+        },
+        {
+            id: 28,
+            name: "Cotton Cap",
+            price: 79.99,
+            description: "Cap in cotton canvas with a sweatband in cotton. Adjustable hook-loop tab at back.",
+            imageUrl: "./assets/css/img/phukien8.jpg",
+            title:"phukien"
+        },
+        {
+            id: 29,
+            name: "2-pack Ties",
+            price: 109.99,
+            description: "Satin ties. Width 2 1/4 in.",
+            imageUrl: "./assets/css/img/phukien9.jpg",
+            title:"phukien"
+        },
+        {
+            id: 30,
+            name: "Fleece Top for Dog",
+            price: 119.99,
+            description: "Turtleneck dog sweater in soft, warm fleece. Small opening for leash at top and openings for front legs underneath.",
+            imageUrl: "./assets/css/img/phukien10.jpg",
+            title:"phukien"
+        },
+       
     ];
 
-   // Khôi phục giỏ hàng từ localStorage hoặc khởi tạo giỏ hàng rỗng
-   let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Khôi phục giỏ hàng từ localStorage hoặc khởi tạo giỏ hàng rỗng
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  
-
-   // Hàm hiển thị danh sách sản phẩm
-   function renderProducts() {
-       products.forEach(product => {
-           // Tạo phần tử card cho từng sản phẩm
-           const productCard = document.createElement('div');
-           productCard.classList.add('product-card');
-           productCard.innerHTML = `
-               <img src="${product.imageUrl}" alt="${product.name}">
-               <h2>${product.name}</h2>
-               <p class="price">$${product.price.toFixed(2)}</p>
-               <p class="description">${product.description}</p>
-               <a href="#" class="btn" data-id="${product.id}">Xem Sản Phẩm</a>
-           `;
-           productGrid.appendChild(productCard);
-           
-           // Thêm sự kiện click cho nút xem sản phẩm
-           productCard.querySelector('.btn').addEventListener('click', function(e) {
-               e.preventDefault();
-               showProductDetail(product.id); // Hiển thị chi tiết sản phẩm khi nút được nhấn
-           });
-       });
-   }
+    // Hàm hiển thị danh sách sản phẩm
+    function renderProducts() {
+        productGrid.innerHTML = ''; // Clear the grid before rendering
+        products.forEach(product => {
+            // Tạo phần tử card cho từng sản phẩm
+            const productCard = document.createElement('div');
+            productCard.classList.add('product-card');
+            productCard.innerHTML = `
+                <img src="${product.imageUrl}" alt="${product.name}">
+                <h2>${product.name}</h2>
+                <p class="price">$${product.price.toFixed(2)}</p>
+                <p class="description">${product.description}</p>
+                <a href="#" class="btn" data-id="${product.id}">View Product</a>
+            `;
+            productGrid.appendChild(productCard);
+            
+            // Thêm sự kiện click cho nút xem sản phẩm
+            productCard.querySelector('.btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                showProductDetail(product.id); // Hiển thị chi tiết sản phẩm khi nút được nhấn
+            });
+        });
+    }
 
     // Hàm hiển thị chi tiết sản phẩm
     function showProductDetail(productId) {
@@ -195,14 +294,14 @@ document.addEventListener('DOMContentLoaded', function() {
         productImages.appendChild(img); // Thêm hình ảnh vào phần tử hiển thị hình ảnh sản phẩm
 
         productDetailSection.style.display = 'block'; // Hiển thị phần chi tiết sản phẩm
+        productDetailSection.childNodes[1].style.display = 'flex';
         productGrid.style.display = 'none'; // Ẩn lưới sản phẩm
         buyProductButton.setAttribute('data-id', product.id); // Cập nhật id sản phẩm cho nút mua
     }
 
     // Sự kiện click để quay lại danh sách sản phẩm
     backToProductsButton.addEventListener('click', function() {
-        productDetailSection.style.display = 'none'; // Ẩn phần chi tiết sản phẩm
-        productGrid.style.display = 'flex'; // Hiển thị lưới sản phẩm
+        location.reload();
     });
 
     // Sự kiện click để thêm sản phẩm vào giỏ hàng
@@ -239,7 +338,6 @@ document.addEventListener('DOMContentLoaded', function() {
             cartItems.style.display = cartItems.style.display === 'none' ? 'block' : 'none';
         });
     }
-    
 
     renderProducts(); // Hiển thị danh sách sản phẩm khi trang được tải
     updateCart(); // Cập nhật thông tin giỏ hàng khi trang được tải

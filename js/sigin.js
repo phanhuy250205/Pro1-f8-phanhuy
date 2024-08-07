@@ -31,7 +31,6 @@ function Validator(options) {
                 var isValid = validate(inputElement, rule); // Kiểm tra và lấy kết quả hợp lệ của trường
                 if (!isValid) {
                     isFormValid = false; // Nếu có bất kỳ lỗi nào, đặt biến trạng thái form thành không hợp lệ
-                    
                 }
             });
 
@@ -45,9 +44,8 @@ function Validator(options) {
                     }, {});
 
                     options.onSubmit(formValues); // Gọi hàm onSubmit với các giá trị của form
-                    window.location.href = 'login.html';
+                    registerUser(formValues);
                 }
-                
             }
         };
 
@@ -56,7 +54,6 @@ function Validator(options) {
             var inputElement = formElement.querySelector(rule.selector); // Tìm phần tử input theo selector của quy tắc
 
             if (inputElement) {
-
                 // Xử lý sự kiện blur (mất tiêu điểm) của trường input
                 inputElement.onblur = function () {
                     validate(inputElement, rule); // Kiểm tra và hiển thị thông báo lỗi khi trường mất tiêu điểm
@@ -71,6 +68,28 @@ function Validator(options) {
             }
         });
     }
+}
+
+// Hàm gửi dữ liệu đăng ký người dùng tới server
+function registerUser(userData) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:3000/users', true);
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            console.log('User registered successfully:', JSON.parse(xhr.responseText));
+            window.location.href = 'login.html';
+        } else {
+            console.error('Error registering user:', xhr.statusText);
+        }
+    };
+    
+    xhr.onerror = function () {
+        console.error('Request failed');
+    };
+    
+    xhr.send(JSON.stringify(userData));
 }
 
 // Định nghĩa các quy tắc xác thực

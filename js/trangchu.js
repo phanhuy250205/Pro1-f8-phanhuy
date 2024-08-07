@@ -62,7 +62,7 @@ class Slider {
         if (index >= this.slides.length) {
             this.currentSlideIndex = 0;
         } else if (index < 0) {
-            this.currentSlideIndex = this.slides.length - 1;
+            this.currentSlideIndex = this.slides.length - 1; //Nếu ảnh lớn hơn thì slides sẽ chuyển xuống cuối
         } else {
             this.currentSlideIndex = index;
         }

@@ -154,7 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Thanh toán thành công!'); // Hiển thị thông báo thanh toán thành công
         } else {
             alert('Vui lòng kiểm tra lại giỏ hàng của bạn.'); // Thông báo nếu giỏ hàng không hợp lệ
-        }
+            removeItem(index);
+                }
     });
 
     renderCart(); // Gọi hàm để hiển thị giỏ hàng khi trang được tải

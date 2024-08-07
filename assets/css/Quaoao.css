@@ -188,13 +188,13 @@ a {
     overflow: hidden;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: border 0.4s ease;
+    transition: all 1s ease;
     height: 100%;
     padding: 20px;
 }
 
 .product-card:hover {
-    border: 3px solid #0f1b4c;
+    outline: 2px solid black;
 }
 
 .product-card img {
@@ -332,24 +332,25 @@ a {
 }
 
 .carousel img {
-    max-width: 36%;
+    max-width: 100%;
     height: auto;
     border: 1px solid #ddd;
     border-radius: 8px;
 }
 
 .product-detail .price {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 20px;
 }
 
 .product-detail .description {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     line-height: 1.5;
     color: #555;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .product-detail .btn {
@@ -417,4 +418,9 @@ a {
 
 .modal-footer {
     text-align: right;
+}
+.content{
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
