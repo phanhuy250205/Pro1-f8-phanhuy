@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 21,
-            name: "3-pack Necklaces",
+            name: "Phu 3-pack Necklaces",
             price: 9.99,
             description: "Metal necklaces in various designs. Trigger clasp.",
             imageUrl: "./assets/css/img/phukien1.jpg",
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 22,
-            name: "Elasticized Fabric Belt",
+            name: " Phu Elasticized Fabric Belt",
             price: 19.99,
             description: "Braided, elasticized fabric belt with faux leather details and metal buckle. Width approx. 1 1/2 in.",
             imageUrl: "./assets/css/img/phukien2.jpg",
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 23,
-            name: "3-pack Bracelets",
+            name: "Phu 3-pack Bracelets",
             price: 29.99,
             description: "Leather belt with a metal buckle. Width 1 in.",
             imageUrl: "./assets/css/img/phukien3.jpg",
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 24,
-            name: "Backpack",
+            name: "Phu Backpack",
             price: 39.99,
             description: "Backpack in woven fabric. Padded, adjustable shoulder straps, handle and drawstring closure at top, and flap with adjustable straps, each with a plastic snap lock. Upper pocket with zipper, open side pockets, outer compartment at front with zipper, and an inner compartment at back for laptop storage. Padded backplate. Lined.",
             imageUrl: "./assets/css/img/phukien4.jpg",
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 25,
-            name: "2-pack Necklaces",
+            name: "Phu 2-pack Necklaces",
             price: 49.99,
             description: "Sản phẩm được yêu thích nhất, áo sơ mi nam phong cách lịch lãm, phù hợp cho công sở.",
             imageUrl: "./assets/css/img/phukien5.jpg",
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 26,
-            name: "Backpack",
+            name: "Phu Backpack",
             price: 19.99,
             description: "Backpack in woven fabric with padded, adjustable shoulder straps. Handle and zipper at top, outer compartment with zipper, and an open inner compartment with space for a laptop. Padded backplate. Lined. Width 12 1/4 in. Height 17 in. Depth 3 1/4 in.",
             imageUrl: "./assets/css/img/phukien6.jpg",
@@ -223,14 +223,14 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 27,
-            name: "Small Shoulder Bag",
+            name: "Phu Small Shoulder Bag",
             price: 59.99,
             description: "Small shoulder bag in woven fabric. Adjustable shoulder strap with slider buckle. Zipper at top, three outer compartments with flap and hook-loop closure, and an inner compartment. Width 6 3/4 in. Height 7 1/2 in. Depth 2 in. Lined.",
             imageUrl: "./assets/css/img/phukien7.jpg"
         },
         {
             id: 28,
-            name: "Cotton Cap",
+            name: " Phu Cotton Cap",
             price: 79.99,
             description: "Cap in cotton canvas with a sweatband in cotton. Adjustable hook-loop tab at back.",
             imageUrl: "./assets/css/img/phukien8.jpg",
@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 29,
-            name: "2-pack Ties",
+            name: "Phu 2-pack Ties",
             price: 109.99,
             description: "Satin ties. Width 2 1/4 in.",
             imageUrl: "./assets/css/img/phukien9.jpg",
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 30,
-            name: "Fleece Top for Dog",
+            name: "Phu Fleece Top for Dog",
             price: 119.99,
             description: "Turtleneck dog sweater in soft, warm fleece. Small opening for leash at top and openings for front legs underneath.",
             imageUrl: "./assets/css/img/phukien10.jpg",
@@ -260,54 +260,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Hàm hiển thị danh sách sản phẩm
     function renderProducts() {
-        productGrid.innerHTML = ''; // Clear the grid before rendering
+        //Duyệt qua từng sản phầm của mảng produst
         products.forEach(product => {
-            // Tạo phần tử card cho từng sản phẩm
             const productCard = document.createElement('div');
             productCard.classList.add('product-card');
+
             productCard.innerHTML = `
                 <img src="${product.imageUrl}" alt="${product.name}">
                 <h2>${product.name}</h2>
                 <p class="price">$${product.price.toFixed(2)}</p>
                 <p class="description">${product.description}</p>
-                <a href="#" class="btn" data-id="${product.id}">View Product</a>
+                <a href="#" class="btn" data-id="${product.id}">Xem sản phẩm</a>
             `;
             productGrid.appendChild(productCard);
             
             // Thêm sự kiện click cho nút xem sản phẩm
             productCard.querySelector('.btn').addEventListener('click', function(e) {
                 e.preventDefault();
-                showProductDetail(product.id); // Hiển thị chi tiết sản phẩm khi nút được nhấn
+                showProductDetail(product.id); 
             });
         });
     }
 
     // Hàm hiển thị chi tiết sản phẩm
     function showProductDetail(productId) {
-        const product = products.find(p => p.id === productId); // Tìm sản phẩm theo id
-        productTitle.textContent = product.name; // Cập nhật tiêu đề sản phẩm
-        productPrice.textContent = `$${product.price.toFixed(2)}`; // Cập nhật giá sản phẩm
-        productDescription.textContent = product.description; // Cập nhật mô tả sản phẩm
-        productImages.innerHTML = ''; // Xóa các hình ảnh hiện tại
-        const img = document.createElement('img'); // Tạo phần tử img cho hình ảnh sản phẩm
+        const product = products.find(p => p.id === productId); 
+        productTitle.textContent = product.name; 
+        productPrice.textContent = `$${product.price.toFixed(2)}`; 
+        productDescription.textContent = product.description; 
+        productImages.innerHTML = ''; 
+        const img = document.createElement('img'); 
         img.src = product.imageUrl;
-        productImages.appendChild(img); // Thêm hình ảnh vào phần tử hiển thị hình ảnh sản phẩm
+        productImages.appendChild(img);
 
-        productDetailSection.style.display = 'block'; // Hiển thị phần chi tiết sản phẩm
-        productDetailSection.childNodes[1].style.display = 'flex';
-        productGrid.style.display = 'none'; // Ẩn lưới sản phẩm
-        buyProductButton.setAttribute('data-id', product.id); // Cập nhật id sản phẩm cho nút mua
+        productDetailSection.style.display = 'block'; 
+        productGrid.style.display = 'none'; 
+        buyProductButton.setAttribute('data-id', product.id);
     }
 
     // Sự kiện click để quay lại danh sách sản phẩm
     backToProductsButton.addEventListener('click', function() {
+        productDetailSection.style.display = 'none'; 
+        // productGrid.style.display = 'flex'; 
         location.reload();
+        
     });
 
     // Sự kiện click để thêm sản phẩm vào giỏ hàng
     buyProductButton.addEventListener('click', function() {
-        const productId = parseInt(buyProductButton.getAttribute('data-id')); // Lấy id sản phẩm từ nút
-        const product = products.find(p => p.id === productId); // Tìm sản phẩm theo id
+        const productId = parseInt(buyProductButton.getAttribute('data-id')); 
+        const product = products.find(p => p.id === productId); 
         const existingProductIndex = cart.findIndex(p => p.id === productId); // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
 
         if (existingProductIndex > -1) {
@@ -318,27 +320,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         localStorage.setItem('cart', JSON.stringify(cart)); // Lưu giỏ hàng vào localStorage
-        updateCart(); // Cập nhật số lượng và danh sách sản phẩm trong giỏ hàng
+        updateCart(); 
         window.location.href = 'cart.html'; // Điều hướng đến trang giỏ hàng
     });
 
     // Hàm cập nhật thông tin giỏ hàng
     function updateCart() {
-        cartCount.textContent = cart.reduce((total, product) => total + product.quantity, 0); // Cập nhật số lượng sản phẩm trong giỏ hàng
-        cartItems.innerHTML = ''; // Xóa danh sách sản phẩm hiện tại trong giỏ hàng
+        cartCount.textContent = cart.reduce((total, product) => total + (product.quantity || 0), 0); // Cập nhật số lượng sản phẩm trong giỏ hàng
+        cartItems.innerHTML = ''; 
         cart.forEach(product => {
-            // Tạo phần tử cho từng sản phẩm trong giỏ hàng
             const cartItem = document.createElement('div');
             cartItem.textContent = `${product.name} - $${product.price.toFixed(2)} (x${product.quantity})`;
             cartItems.appendChild(cartItem);
         });
         cartItems.style.display = 'none'; // Ẩn danh sách sản phẩm trong giỏ hàng ban đầu
         cartCount.addEventListener('click', function() {
-            // Hiển thị hoặc ẩn danh sách sản phẩm trong giỏ hàng khi số lượng được nhấn
-            cartItems.style.display = cartItems.style.display === 'none' ? 'block' : 'none';
+            cartItems.style.display = cartItems.style.display === 'none' ? 'block' : 'none'; // Hiển thị hoặc ẩn danh sách sản phẩm trong giỏ hàng khi số lượng được nhấn
         });
     }
 
-    renderProducts(); // Hiển thị danh sách sản phẩm khi trang được tải
-    updateCart(); // Cập nhật thông tin giỏ hàng khi trang được tải
+    // Hàm tìm kiếm sản phẩm theo tên bắt đầu
+    window.searchProduct = function() {
+        const input = document.getElementById('search-input').value.toLowerCase().trim().split(' ')[0]; // Lấy từ đầu tiên
+        const productCards = document.querySelectorAll('.product-card'); // Lấy tất cả các thẻ sản phẩm
+
+        productCards.forEach(card => {
+            const productName = card.querySelector('h2').textContent.toLowerCase(); // Lấy tên sản phẩm và chuyển về chữ thường
+            card.style.display = productName.startsWith(input) ? 'block' : 'none'; // Kiểm tra xem tên sản phẩm có bắt đầu bằng từ tìm kiếm không
+        });
+    }
+
+    renderProducts(); 
+    updateCart(); 
 });

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/Quaoao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Product Page</title>
     
 </head>
@@ -24,10 +25,12 @@
                 <!-- Navigation -->
                 <ul>
                     <li>
-                        <form action="" class="search-form" id="search-form">
+                        
+                        <form action="" class="search-form" id="search-form" onsubmit="event.preventDefault(); searchProduct();">
                             <label for="timkiem" style="font-size: 1.6rem;">Search</label>
-                            <input type="text" class="timkiem" id="timkiem">
-                            <button type="submit" class="search-btn">Find</button>
+                            <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+
+                            <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                         
                     </li>
@@ -65,8 +68,8 @@
                 <p class="price" id="product-price">$0.00</p>
                 <p class="description" id="product-description">Mô tả sản phẩm </p>
                 <div class="button-container">
-                    <button class="btn" id="buy-product">Add to cart</button>
-                    <button class="btn" id="back-to-products">Come back</button>
+                    <button class="btn" id="buy-product"><i class="fas fa-cart-shopping"></i> </button>
+                    <button class="btn" id="back-to-products"><i class="fas fa-rotate-left"></i> </button>
                 </div>
             </div>
         </section>

@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Chọn các phần tử từ DOM
-    const cartItemsContainer = document.getElementById('cart-items'); // Container hiển thị các mục trong giỏ hàng
+    const cartItemsContainer = document.getElementById('cart-items'); 
     const checkoutButton = document.getElementById('checkout-button'); // Nút thanh toán
     const totalPriceContainer = document.getElementById('total-price'); // Container hiển thị tổng giá
-    const summaryContainer = document.createElement('section'); // Tạo một section mới để chứa thông tin đơn hàng
-    summaryContainer.id = 'summary-container'; // Gán ID cho section
-    document.querySelector('main').appendChild(summaryContainer); // Thêm section vào phần chính của trang
+    const summaryContainer = document.createElement('section'); 
+    summaryContainer.id = 'summary-container'; 
+    document.querySelector('main').appendChild(summaryContainer); 
 
     // Khởi tạo giỏ hàng từ localStorage, hoặc sử dụng một mảng rỗng nếu không có dữ liệu
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         cartItemsContainer.innerHTML = ''; // Xóa nội dung hiện tại của container
 
         cart.forEach((item, index) => {
-            const isPerfumeOrBelt = item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng'); // Kiểm tra sản phẩm có phải là nước hoa hoặc thắt lưng không
-            const cartItem = document.createElement('div'); // Tạo một div mới cho mỗi mục giỏ hàng
-            cartItem.classList.add('cart-item'); // Thêm lớp CSS cho mục giỏ hàng
+            const isPerfumeOrBelt = item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng'); 
+            const cartItem = document.createElement('div'); 
+            cartItem.classList.add('cart-item'); 
             cartItem.innerHTML = `
                 <div class="cart-item-info">
                     <img src="${item.imageUrl}" alt="${item.name}"> <!-- Ảnh sản phẩm -->
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
                 <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div> <!-- Hiển thị tổng giá của sản phẩm -->
-                <button class="cart-item-remove" data-index="${index}">Xóa</button> <!-- Nút xóa sản phẩm khỏi giỏ hàng -->
+                <button class="cart-item-remove" data-index="${index}"><i class="fa-solid fa-circle-minus"></i></button> <!-- Nút xóa sản phẩm khỏi giỏ hàng -->
             `;
             cartItemsContainer.appendChild(cartItem); // Thêm mục giỏ hàng vào container
 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Cập nhật size, màu sắc, và số lượng khi thay đổi
                 cartItem.querySelector('.size-select').addEventListener('change', function() {
                     const selectedIndex = this.getAttribute('data-index');
-                    cart[selectedIndex].size = this.value;
+                    cart[selectedIndex].size = this.value;//Cập nhật kích thước các mục trong giỏ hàng
                     localStorage.setItem('cart', JSON.stringify(cart)); // Lưu giỏ hàng vào localStorage
                     updateSummary(); // Cập nhật thông tin đơn hàng
                 });

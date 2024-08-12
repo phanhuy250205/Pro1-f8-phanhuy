@@ -1,151 +1,565 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Document</title>
 
-document.addEventListener('DOMContentLoaded', function() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    const checkoutButton = document.getElementById('checkout-button');
-    const totalPriceContainer = document.getElementById('total-price');
-    const summaryContainer = document.getElementById('summary-container');
-    
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+<!-- Favicon -->
+<link rel="shortcut icon" href="http://abctech.vn/wp-content/uploads/2017/06/logo-nen-xanh.jpg" type="image/x-icon">
 
-    function renderCart() {
-        cartItemsContainer.innerHTML = '';
+<!-- External CSS and Icons -->
+<link rel="stylesheet" href="style/index.css">
+<link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 
-        cart.forEach((item, index) => {
-            const isPerfumeOrBelt = item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng');
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
-            cartItem.innerHTML = `
-                <div class="cart-item-info">
-                    <img src="${item.imageUrl}" alt="${item.name}">
-                    <div>
-                        <h2>${item.name}</h2>
-                        <p>$${item.price.toFixed(2)}</p>
-                        ${isPerfumeOrBelt ? '' : `
-                        <div class="cart-item-options">
-                            <label for="size-${index}">Size:</label>
-                            <select id="size-${index}" class="size-select" data-index="${index}">
-                                <option value="">Chọn Size</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                            </select>
-                            <label for="color-${index}">Màu:</label>
-                            <select id="color-${index}" class="color-select" data-index="${index}">
-                                <option value="">Chọn Màu</option>
-                                <option value="Đỏ">Đỏ</option>
-                                <option value="Xanh">Xanh</option>
-                                <option value="Đen">Đen</option>
-                                <option value="Trắng">Trắng</option>
-                            </select>
-                            <label for="quantity-${index}">Số lượng:</label>
-                            <select id="quantity-${index}" class="quantity-select" data-index="${index}">
-                                ${Array.from({ length: 10 }, (_, i) => i + 1).map(num => 
-                                    `<option value="${num}" ${item.quantity === num ? 'selected' : ''}>${num}</option>`
-                                ).join('')}
-                            </select>
-                        </div>`}
-                    </div>
-                </div>
-                <div class="cart-item-price">$${(item.price * (item.quantity || 1)).toFixed(2)}</div>
-                <div class="cart-item-remove">Xóa</div>
-            `;
-            cartItemsContainer.appendChild(cartItem);
+<!-- External JavaScript -->
+<script src="js/index.js"></script>
+</head>
+<body onload="init()">
+<div class="container">
+  
+  <!-- Header Section -->
+  <header class="header">
+    <ul>
+      <li class="header-one">
+        <i class='bx bx-phone'></i>
+        <a href="#">1900 6756</a>
+      </li>
+      <li class="header-two">
+        <a href="#">Thứ 2-Chủ nhật: 9:00-18:00</a>
+      </li>
+      <li class="header-three">
+        <a href="./html/dangky.html">Đăng ký</a>
+      </li>
+      <li class="header-four">
+        <a href="#">Đăng nhập</a>
+        <i class='bx bx-search'></i>
+        <i class='bx bxl-shopify'></i>
+      </li>
+    </ul>
+  </header>
+  
+  <!-- Navigation Menu -->
+  <nav class="nav">
+    <ul>
+      <li><a href="index.html">TRANG CHỦ</a></li>
+      <li><a href="html/sale.html">SẢN PHẨM SALE</a></li>
+      <li class="nav_big"><a class="nav-one" href="html/noibat.html">THỰC ĐƠN</a></li>
+      <!-- <li><a class="logo" href="index.html"><img src="./assets/css/img/ao.jpg" alt="Logo"></a></li> -->
+      <li><a href="html/tintuc.html">TIN TỨC</a></li>
+      <li><a href="html/lienhe.html">ĐĂNG KÝ SINH VIÊN</a></li>
+      <li><a href="html/banhang.html">BÁN HÀNG</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Slider Section -->
+  <div class="hero-img">
+    <div class="content-trai">
+        <h1>Shop Bán Đồ Điện thoại</h1>
+        <p class="shop-description">
+            Chào mừng bạn đến với cửa hàng chúng tôi! Chúng tôi cung cấp các loại điện thoại di động chính hãng với giá cả cạnh tranh. Hãy khám phá bộ sưu tập của chúng tôi và tìm cho mình những sản phẩm ưng ý nhất.
+        </p>
+        <p class="shop-description">
+            Chúng tôi cam kết mang đến dịch vụ khách hàng tốt nhất và hỗ trợ kỹ thuật tận tình. Cảm ơn bạn đã tin tưởng và chọn lựa sản phẩm của chúng tôi!
+        </p>
+    </div>
+      <div class="slide-container">
+          <div class="slides">
+              <div class="slide">
+                  <img src="./assets/css/img/sanphamao1.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+              </div>
+              <div class="slide">
+                  <img src="./assets/css/img/sanphamao2.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+              </div>
+              <div class="slide">
+                  <img src="./assets/css/img/sanphamao3.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+              </div>
+              <div class="slide">
+                  <img src="./assets/css/img/sanphamao4.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+              </div>
+              <div class="slide">
+                  <img src="./assets/css/img/sanphamao5.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+              </div>
+              <div class="slide">
+                  <img src="./assets/css/img/sanphamao6.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+              </div>
+              <div class="slide">
+                  <img src="./assets/css/img/sanphamao7.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+              </div>
+              <div class="slide">
+                  <img src="./assets/css/img/sanphamao9.jpg" alt="Khám phá một nơi bạn sẽ thích để sống.">
+              </div>
+          </div>
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+      </div>
+  </div>
+  <script>
+      class Slider {
+  constructor(container) {
+      this.container = container;
+      this.slides = this.container.querySelectorAll('.slide');
+      this.prevButton = this.container.querySelector('.prev');
+      this.nextButton = this.container.querySelector('.next');
+      this.currentSlideIndex = 0;
+      this.autoSlideInterval = 3000; // Thời gian chuyển đổi tự động (ms)
 
-            if (!isPerfumeOrBelt) {
-                cartItem.querySelector('.size-select').addEventListener('change', function() {
-                    const selectedIndex = this.getAttribute('data-index');
-                    cart[selectedIndex].size = this.value;
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    updateSummary();
-                });
+      this.showSlide(this.currentSlideIndex);
 
-                cartItem.querySelector('.color-select').addEventListener('change', function() {
-                    const selectedIndex = this.getAttribute('data-index');
-                    cart[selectedIndex].color = this.value;
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    updateSummary();
-                });
+      this.prevButton.addEventListener('click', () => this.moveSlide(-1));
+      this.nextButton.addEventListener('click', () => this.moveSlide(1));
 
-                cartItem.querySelector('.quantity-select').addEventListener('change', function() {
-                    const selectedIndex = this.getAttribute('data-index');
-                    cart[selectedIndex].quantity = parseInt(this.value, 10);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    renderCart();
-                });
-            }
+      // Bắt đầu tự động chạy
+      this.startAutoSlide();
+  }
 
-            cartItem.querySelector('.cart-item-remove').addEventListener('click', function() {
-                removeItem(index);
-            });
-        });
+  showSlide(index) {
+      if (index >= this.slides.length) {
+          this.currentSlideIndex = 0;
+      } else if (index < 0) {
+          this.currentSlideIndex = this.slides.length - 1; //Nếu ảnh lớn hơn thì slides sẽ chuyển xuống cuối
+      } else {
+          this.currentSlideIndex = index;
+      }
 
-        updateSummary();
-    }
+      for (let slide of this.slides) {
+          slide.style.display = 'none';
+      }
 
-    function removeItem(index) {
-        cart.splice(index, 1);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        renderCart();
-    }
+      this.slides[this.currentSlideIndex].style.display = 'block';
+  }
 
-    function updateSummary() {
-        let totalPrice = 0;
-        let summaryHtml = `
-            <h2>Thông tin đơn hàng</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tên sản phẩm</th>
-                        <th>Size</th>
-                        <th>Màu</th>
-                        <th>Số lượng</th>
-                        <th>Giá</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
+  moveSlide(n) {
+      this.showSlide(this.currentSlideIndex + n);
+  }
 
-        cart.forEach(item => {
-            summaryHtml += `
-                <tr>
-                    <td>${item.name}</td>
-                    <td>${item.size || (item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng') ? 'Không Có' : 'Chưa chọn')}</td>
-                    <td>${item.color || (item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng') ? 'Không Có' : 'Chưa chọn')}</td>
-                    <td>${item.quantity || 1}</td>
-                    <td>$${(item.price * (item.quantity || 1)).toFixed(2)}</td>
-                </tr>
-            `;
-            totalPrice += item.price * (item.quantity || 1);
-        });
+  startAutoSlide() {
+      this.autoSlideTimer = setInterval(() => {
+          this.moveSlide(1);
+      }, this.autoSlideInterval);
+  }
 
-        summaryHtml += `
-                </tbody>
-            </table>
-        `;
+  stopAutoSlide() {
+      clearInterval(this.autoSlideTimer);
+  }
+}
 
-        summaryContainer.innerHTML = summaryHtml;
-        totalPriceContainer.innerHTML = `Tổng giá: $${totalPrice.toFixed(2)}`;
-    }
+// Initialize the slider
+document.addEventListener('DOMContentLoaded', () => {
+  const sliderContainer = document.querySelector('.slide-container');
+  const slider = new Slider(sliderContainer);
 
-    function validateCart() {
-        return cart.every(item => 
-            (item.size || item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng'))
-            && (item.color || item.name.includes('Nước Hoa') || item.name.includes('Thắt Lưng'))
-            && item.quantity
-        );
-    }
-
-    checkoutButton.addEventListener('click', function() {
-        if (validateCart()) {
-            alert('Thanh toán thành công!');
-        } else {
-            alert('Vui lòng kiểm tra lại giỏ hàng của bạn.');
-        }
-    });
-
-    renderCart();
+  // Tạm dừng khi di chuột qua slider và khởi động lại khi di chuột ra ngoài
+  sliderContainer.addEventListener('mouseenter', () => slider.stopAutoSlide());
+  sliderContainer.addEventListener('mouseleave', () => slider.startAutoSlide());
 });
 
-</script>
+// Function to be called on body load
+function init() {
+  // Any initialization code can go here
+}
+  </script>
+  
+  <!-- Sale Section -->
+  <section class="sale">
+      <div class="sanpham">
+        <div class="sanpham1">
+          <p class="sanpham__sale">-6%</p>
+          <img src="./assets/css/img/ao1.jpg" alt="Sản phẩm 1">
+          <h3>Đùi gà chiên bơ</h3>
+          <p style="text-align: center; color:rgb(98, 101, 104);">
+            Thực phẩm sạch sẽ, an toàn, được đánh giá cao trong các thương hiệu đi đầu tại...
+          </p>
+          <h3 style="text-align: center; color:red;">
+            60.000 <sup>đ</sup> <del>64.000<sup>đ</sup></del>
+          </h3>
+        </div>
+        <div class="sanpham1">
+          <img src="./assets/css/img/ao1.jpg" alt="Sản phẩm 2">
+          <h3>Cơm gà nướng phô mai cay</h3>
+          <p style="text-align: center; color:rgb(98, 101, 104);">
+            Bạn đang băm khoăn không biết phải làm gì với bát cơm còn thừa bữa trước, đổ đi thì...
+          </p>
+          <h3 style="text-align: center; color:red;">65.000 <sup>đ</sup></h3>
+        </div>
+        <div class="sanpham1">
+          <p class="sanpham__sale">-11%</p>
+          <img src="./assets/css/img/ao1.jpg" alt="Sản phẩm 3">
+          <h3>Cơm chiên kim chi</h3>
+          <p style="text-align: center; color:rgb(98, 101, 104);">
+            Bạn đang băm khoăn không biết phải làm gì với bát cơm còn thừa bữa trước, đổ đi thì...
+          </p>
+          <h3 style="text-align: center; color:red;">
+            250.000 <sup>đ</sup> <del>280.000<sup>đ</sup></del>
+          </h3>
+        </div>
+      </div>
+  </section>
+  
+  <!-- Product Categories (e.g., CƠM CHIÊN, GÀ CHIÊN, etc.) -->
+  <section class="chicken">
+    <div class="div">
+      <p class="chicken_sale">CƠM CHIÊN</p>
+      <h2>_______</h2>
+    </div>
+    <div class="sanpham2">
+      <div class="sanpham3">
+        <p class="sanpham__sale">-13%</p>
+        <img src="./assets/css/img/ao1.jpg" alt="Sản phẩm 4">
+        <h3>Đùi gà chiên bơ</h3>
+        <p style="text-align: center; color:rgb(98, 101, 104);">
+          Thực phẩm sạch sẽ, an toàn, được đánh giá cao trong các thương hiệu đi đầu tại...
+        </p>
+        <h3 style="text-align: center; color:red;">
+          60.000 <sup>đ</sup> <del>64.000<sup>đ</sup></del>
+        </h3>
+      </div>
+      <div class="sanpham3">
+        <img src="./assets/css/img/ao1.jpg" alt="Sản phẩm 5">
+        <h3>Cơm gà nướng phô mai cay</h3>
+        <p style="text-align: center; color:rgb(98, 101, 104);">
+          Bạn đang băm khoăn không biết phải làm gì với bát cơm còn thừa bữa trước, đổ đi thì...
+        </p>
+        <h3 style="text-align: center; color:red;">65.000 <sup>đ</sup></h3>
+      </div>
+      <div class="sanpham3">
+        <p class="sanpham__sale">-15%</p>
+        <img src="./assets/css/img/ao1.jpg" alt="Sản phẩm 6">
+        <h3>Cơm chiên kim chi</h3>
+        <p style="text-align: center; color:rgb(98, 101, 104);">
+          Bạn đang băm khoăn không biết phải làm gì với bát cơm còn thừa bữa trước, đổ đi thì...
+        </p>
+        <h3 style="text-align: center; color:red;">
+          250.000 <sup>đ</sup> <del>280.000<sup>đ</sup></del>
+        </h3>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="ft__one">
+      <img class="footer__logo" src="./assets/css/img/ao1.jpg" alt="Logo">
+      <div class="diachi">
+        <i class='bx bxs-home-smile'></i>
+        <p> 90-92 Lê Thị Riêng, P.Bến Thành, Quận 1, TP.HCM</p>
+      </div>
+      <div class="dienthoai">
+        <i class='bx bxs-phone-call'></i>
+        <a href="#">1900 6750</a>
+      </div>
+      <div class="email">
+        <i class='bx bxl-gmail'></i>
+        <a href="#">dogiadungdatviet@gmail.com</a>
+      </div>
+      <div class="icon">
+        <a href="#"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+        <a href="#"><i class='bx bxl-youtube'></i></a>
+        <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+      </div>
+    </div>
+    <div class="ft__two">
+      <p>About Us</p>
+      <a href="#">Trang Chủ</a>
+      <a href="#">Sản phẩm sale</a>
+      <a href="#">Sản phẩm nổi bật</a>
+      <a href="#">Đăng ký sinh viên</a>
+      <a href="#">Tin tức</a>
+      <a href="#">Bán hàng</a>
+    </div>
+    <div class="ft__three">
+      <p>FAQ</p>
+      <a href="#">FAQs</a>
+      <a href="#">Chính sách bảo mật</a>
+      <a href="#">Thông tin giao hàng</a>
+      <a href="#">Tuyển dụng</a>
+      <a href="#">Liên hệ</a>
+    </div>
+  </footer>
+  
+</div>
+</body>
+<style>
+  /* General Styles */
+body, html {
+margin: 0;
+padding: 0;
+font-family: 'Arial', sans-serif;
+}
+
+.container {
+width: 100%;
+margin: 0 auto;
+}
+
+/* Header Styles */
+.header {
+background-color: #f8f8f8;
+}
+
+.header ul {
+list-style: none;
+display: flex;
+justify-content: space-between;
+padding: 10px;
+}
+
+.header ul li {
+display: flex;
+align-items: center;
+}
+
+.header ul li a {
+text-decoration: none;
+color: #333;
+margin-left: 5px;
+}
+
+/* Navigation Styles */
+.nav {
+background-color: #333;
+}
+
+.nav ul {
+list-style: none;
+display: flex;
+justify-content: center;
+padding: 15px;
+}
+
+.nav ul li {
+margin: 0 15px;
+}
+
+.nav ul li a {
+text-decoration: none;
+color: #fff;
+font-size: 16px;
+}
+
+.nav ul li a.logo img {
+height: 50px;
+width: auto;
+}
+
+/* Slider Section */
+.hero-img {
+position: relative;
+max-width: 100%;
+width: 100%;
+overflow: hidden;
+display: flex;
+justify-content: flex-end;
+}
+
+.slide-container {
+    /* position: absolute; */
+right: 0;
+top:  0;
+display: flex;
+transition: transform 0.5s ease-in-out;
+width: 400px;
+margin-left: 450px;
+height: 500px;
+}
+
+.slides {
+display: flex;
+}
+
+.slide {
+min-width: 100%;
+}
+
+.hero-img {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.slide-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 400px;
+    height: 500px;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+   margin-right: 400px;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Slider Buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 3px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.content-trai {
+           
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: left;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .shop-description {
+            font-size: 16px;
+            color: #555;
+        }
+/* Sale Section */
+.sale {
+padding: 20px;
+background-color: #fff;
+}
+
+.sanpham {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+}
+
+.sanpham1 {
+text-align: center;
+margin: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+padding: 10px;
+width: 30%;
+}
+
+.sanpham1 img {
+width: 100%;
+height: auto;
+}
+
+.sanpham__sale {
+color: red;
+font-weight: bold;
+position: relative;
+background-color: #fff;
+padding: 5px;
+}
+
+/* Product Category Sections */
+.chicken .div {
+text-align: center;
+}
+
+.chicken .div p {
+font-size: 24px;
+font-weight: bold;
+}
+
+.chicken .div h2 {
+border-bottom: 2px solid #333;
+display: inline-block;
+}
+
+.sanpham2 {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+}
+
+.sanpham3 {
+text-align: center;
+margin: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+padding: 10px;
+width: 30%;
+}
+
+.sanpham3 img {
+width: 100%;
+height: auto;
+}
+
+/* Footer Section */
+.footer {
+display: flex;
+justify-content: space-around;
+padding: 20px;
+background-color: #333;
+color: #fff;
+}
+
+.footer .ft__one {
+text-align: center;
+}
+
+.footer .ft__one img {
+width: 100px;
+height: auto;
+}
+
+.footer .diachi, .footer .dienthoai, .footer .email {
+display: flex;
+align-items: center;
+margin-top: 10px;
+}
+
+.footer .icon a {
+color: #fff;
+text-decoration: none;
+margin: 0 5px;
+font-size: 20px;
+}
+
+.footer .ft__two, .footer .ft__three {
+text-align: left;
+}
+
+.footer .ft__two p, .footer .ft__three p {
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.footer .ft__two a, .footer .ft__three a {
+display: block;
+text-decoration: none;
+color: #fff;
+margin: 5px 0;
+}
+</style>
+</html>
